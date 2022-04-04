@@ -2,12 +2,10 @@ package com.example.typeracerbootcamp;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 
-import java.util.Locale;
 import java.util.Random;
 
-public class Controller {
+public class GameController {
     Random r = new Random();
     String temp;
     String[] words = {"lorem", "ipsum", "dolor", "sit", "amet", "consectetur",
@@ -45,9 +43,10 @@ public class Controller {
     @FXML
     private Label labelinput;
 
-//    Controller(){
-//        labelinput.setText("");
-//    }
+    GameController(){
+        labelinput.setText("");
+        label1.setText("");
+    }
     public void load(boolean hit){
         if(hit){
             label1.setText(words[r.nextInt(words.length)]);
@@ -83,5 +82,4 @@ public class Controller {
         }
         labelinput.setText(temp);
     }
-
 }

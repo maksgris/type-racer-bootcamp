@@ -12,33 +12,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Source extends Application {
+    private static Stage stg;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Source.class.getResource("hello-view.fxml"));
+        stg = stage;
+        FXMLLoader fxmlLoader = new FXMLLoader(Source.class.getResource("MainMenu.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600, 400);
-        Controller controller = fxmlLoader.getController();
-        controller.load(true);
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent e) {
-                if (e.getCode() == KeyCode.ENTER) {
-                    System.out.println("[DEBUG] ENTER HIT");
-                    controller.onEnter(e.getCode().toString());
-                }
-                else if(e.getCode().toString().length()==1) {
-                    System.out.println("[DEBUG] LETTER HIT " + e.getText());
-                    controller.onLetterPress(e.getText());
-                }
-                else if(e.getCode() == KeyCode.BACK_SPACE)
-                    controller.delchar();
-                    System.out.println(e.getCode());
-                }
-        });
-
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+    }
+    public void ChangeScene(String fxml) throws IOException{
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        stg.getScene().setRoot(pane);
     }
 
     public static void main(String[] args) {
