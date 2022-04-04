@@ -9,7 +9,7 @@
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
             <Button layoutX="275.0" layoutY="140.0" mnemonicParsing="false" onAction="#StartGame" text="Play" />
-            <Button layoutX="274.0" layoutY="175.0" mnemonicParsing="false" text="Quit" />
+            <Button layoutX="274.0" layoutY="175.0" mnemonicParsing="false" onAction="#ExitGame" text="Quit" />
          </children>
       </AnchorPane>
    </children>

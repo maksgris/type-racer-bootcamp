@@ -23,7 +23,7 @@ public class Source extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public void ChangeScene(String fxml) throws IOException{
+    public void ChangeScene(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
     }

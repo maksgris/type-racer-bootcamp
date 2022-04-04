@@ -1,5 +1,6 @@
 package com.example.typeracerbootcamp;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,7 @@ public class SceneController {
     private GameController controller;
     private FXMLLoader fxmlLoader;
 
-    public void StartGame()  throws IOException  {
+    public void StartGame() throws IOException {
         Source m = new Source();
         m.ChangeScene("InGame.fxml");
 
@@ -49,5 +50,9 @@ public class SceneController {
 //        });
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void ExitGame() {
+        Platform.exit();
     }
 }
