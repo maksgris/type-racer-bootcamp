@@ -27,10 +27,11 @@ public class Source extends Application {
                     controller.onEnter(e.getCode().toString());
                 }
                 else if(e.getCode().toString().length()==1) {
-                    System.out.println("[DEBUG] LETTER HIT " + e.getCharacter());
-                    controller.onLetterPress(e.getCode().toString());
+                    System.out.println("[DEBUG] LETTER HIT " + e.getText());
+                    controller.onLetterPress(e.getText());
                 }
-                else
+                else if(e.getCode() == KeyCode.BACK_SPACE)
+                    controller.delchar();
                     System.out.println(e.getCode());
                 }
         });

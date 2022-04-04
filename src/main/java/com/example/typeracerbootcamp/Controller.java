@@ -71,7 +71,17 @@ public class Controller {
     }
     public void onLetterPress(String e){
         temp = labelinput.getText();
-        labelinput.setText(temp+e.toLowerCase(Locale.ROOT));
+        labelinput.setText(temp+e);
+    }
+    public void delchar(){
+        temp = labelinput.getText();
+        try{
+            temp = temp.substring(0,temp.length()-1);
+        }
+        catch (StringIndexOutOfBoundsException e){
+            temp = "";
+        }
+        labelinput.setText(temp);
     }
 
 }
