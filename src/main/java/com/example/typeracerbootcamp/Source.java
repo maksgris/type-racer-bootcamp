@@ -23,9 +23,13 @@ public class Source extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public void ChangeScene(String fxml) throws IOException{
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+    public void ChangeScene(FXMLLoader fxml) throws IOException{
+        Parent pane = fxml.load();
         stg.getScene().setRoot(pane);
+    }
+
+    public Stage getstg(){
+        return stg;
     }
 
     public static void main(String[] args) {

@@ -1,14 +1,25 @@
 package com.example.typeracerbootcamp;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.PrimitiveIterator;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class GameController {
-    Random r = new Random();
-    String temp;
-    String[] words = {"lorem", "ipsum", "dolor", "sit", "amet", "consectetur",
+public class GameController implements Initializable {
+
+    private Random r = new Random();
+    private String temp;
+    private String[] words = {"lorem", "ipsum", "dolor", "sit", "amet", "consectetur",
             "adipiscing", "elit", "curabitur", "vel", "hendrerit", "libero",
             "eleifend", "blandit", "nunc", "ornare", "odio", "ut",
             "orci", "gravida", "imperdiet", "nullam", "purus", "lacinia",
@@ -42,11 +53,6 @@ public class GameController {
     private Label label1;
     @FXML
     private Label labelinput;
-
-    GameController(){
-        labelinput.setText("");
-        label1.setText("");
-    }
     public void load(boolean hit){
         if(hit){
             label1.setText(words[r.nextInt(words.length)]);
@@ -69,8 +75,13 @@ public class GameController {
         }
     }
     public void onLetterPress(String e){
-        temp = labelinput.getText();
-        labelinput.setText(temp+e);
+        if(labelinput.getText().length()<=label1.getText().length()){
+            temp = labelinput.getText();
+            labelinput.setText(temp+e);
+        }
+        else{
+            System.out.println("[DEBUG] too long!");
+        }
     }
     public void delchar(){
         temp = labelinput.getText();
@@ -81,5 +92,13 @@ public class GameController {
             temp = "";
         }
         labelinput.setText(temp);
+    }
+//    public static void aquireStage(Stage s){
+//        stg = s;
+//    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("[DEBUG] initialize");
     }
 }
