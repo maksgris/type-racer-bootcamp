@@ -1,16 +1,27 @@
 package com.example.typeracerbootcamp;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
 
-import java.util.Locale;
-import java.util.Random;
+import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
-public class Controller {
-    Random r = new Random();
-    String temp;
-    String[] words = {"lorem", "ipsum", "dolor", "sit", "amet", "consectetur",
+public class GameController{
+
+    private Random r = new Random();
+    private String temp;
+    private String[] words = {"lorem", "ipsum", "dolor", "sit", "amet", "consectetur",
             "adipiscing", "elit", "curabitur", "vel", "hendrerit", "libero",
             "eleifend", "blandit", "nunc", "ornare", "odio", "ut",
             "orci", "gravida", "imperdiet", "nullam", "purus", "lacinia",
@@ -44,10 +55,8 @@ public class Controller {
     private Label label1;
     @FXML
     private Label labelinput;
-
-//    Controller(){
-//        labelinput.setText("");
-//    }
+    @FXML
+    private Label labelTimer;
     public void load(boolean hit){
         if(hit){
             label1.setText(words[r.nextInt(words.length)]);
@@ -70,8 +79,33 @@ public class Controller {
         }
     }
     public void onLetterPress(String e){
-        temp = labelinput.getText();
-        labelinput.setText(temp+e);
+        if(labelinput.getText().length()<=label1.getText().length()){
+            temp = labelinput.getText();
+            labelinput.setText(temp+e);
+        }
+        else{
+            System.out.println("[DEBUG] too long!");
+        }
+    }
+    public void endGame(){
+        Platform.setImplicitExit(false);
+        System.out.println("[DEBUG] game successfully ended from controller!");
+        label1.setText("Game over!");
+        labelinput.setText("Press esc to go back to Main menu");
+    }
+    public void endgamelistener() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+        SceneController controller = fxmlLoader.getController();
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) label1.getScene().getWindow();
+        Scene scene = new Scene(root, 600,400);
+        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Competitive Type Racing");
+        Image icon = new Image("file:src/main/java/images/image.png");
+        stage.getIcons().add(icon);
+        stage.setScene(scene);
+        stage.show();
     }
     public void delchar(){
         temp = labelinput.getText();
@@ -83,5 +117,4 @@ public class Controller {
         }
         labelinput.setText(temp);
     }
-
 }
