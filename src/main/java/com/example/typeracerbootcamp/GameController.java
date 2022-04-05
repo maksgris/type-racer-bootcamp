@@ -9,15 +9,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.PrimitiveIterator;
-import java.util.Random;
-import java.util.ResourceBundle;
-import java.util.Timer;
+import java.util.*;
 
 public class GameController{
 
@@ -101,6 +99,11 @@ public class GameController{
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) label1.getScene().getWindow();
         Scene scene = new Scene(root, 600,400);
+        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Competitive Type Racing");
+        Image icon = new Image("file:src/main/java/images/image.png");
+        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
     }

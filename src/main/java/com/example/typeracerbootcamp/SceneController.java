@@ -83,7 +83,6 @@ public class SceneController {
                     }catch (Exception exception){
                         exception.printStackTrace();
                     }
-
                 }
                 }
 
