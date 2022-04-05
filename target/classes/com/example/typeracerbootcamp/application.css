@@ -1,0 +1,13 @@
+.root{
+    -fx-background-color:
+            repeating-image-pattern("https://i.talpix.lt/11mJo.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 600 600;
+    -fx-background-position: center center;
+}
+.button{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button1.png");
+    -fx-font-size: 20;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:  #6495ed;
+}
