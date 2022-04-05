@@ -1,5 +1,7 @@
 package com.example.typeracerbootcamp;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -88,14 +90,19 @@ public class GameController{
         }
     }
     public void endGame(){
-        System.out.println("[DEBUG] game successfully ended!");
+        Platform.setImplicitExit(false);
+        System.out.println("[DEBUG] game successfully ended from controller!");
         label1.setText("Game over!");
         labelinput.setText("Press esc to go back to Main menu");
-
     }
-    public void endgamelistener(String e){
-//        if(e== KeyCode.ESCAPE)
-
+    public void endgamelistener() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+        SceneController controller = fxmlLoader.getController();
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) label1.getScene().getWindow();
+        Scene scene = new Scene(root, 600,400);
+        stage.setScene(scene);
+        stage.show();
     }
     public void delchar(){
         temp = labelinput.getText();

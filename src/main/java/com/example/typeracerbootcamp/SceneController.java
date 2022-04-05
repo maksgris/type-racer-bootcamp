@@ -28,7 +28,8 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private GameController finalController;
-    private chrono timer;
+    private int time;
+
     @FXML
     Button PlayGame;
 
@@ -41,13 +42,27 @@ public class SceneController {
         scene = new Scene(root, 600,400);
         controller.load(true);
         finalController = controller;
-        timer = new chrono(e);
-        timer.setroot(this,finalController);
-        executorService.scheduleAtFixedRate(timer,0,1, TimeUnit.SECONDS);
+        time =5;
+        Runnable timer = new Runnable() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    time--;
+                    System.out.println("[DEBUG] timer runing... " + time);
+                    if(time<=0) {
+                        System.out.println("[DEBUG] horay! " + time + " <= 0");
+                        EndGame();
+                    }
+                });
+                }
+            };
+        Thread thread = new Thread(timer);
+        thread.setDaemon(true);
+        executorService.scheduleAtFixedRate(thread,0,1, TimeUnit.SECONDS);
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent e) {
-                if(timer.canplay()){
+                if(time>0){
                     if (e.getCode() == KeyCode.ENTER) {
                         System.out.println("[DEBUG] ENTER HIT");
                         finalController.onEnter(e.getCode().toString());
@@ -60,10 +75,14 @@ public class SceneController {
                         finalController.delchar();
                     System.out.println(e.getCode());
                 }
-                else{
-                    executorService.shutdown();
-                    finalController.endGame();
-                    System.out.println("[DEBUG] game over! time is" + timer.getTimer());
+                if(e.getCode()==KeyCode.ESCAPE){
+                    try{
+                        executorService.shutdown();
+                        finalController.endgamelistener();
+                    }catch (Exception exception){
+                        exception.printStackTrace();
+                    }
+
                 }
                 }
 
@@ -75,9 +94,9 @@ public class SceneController {
         Platform.exit();
     }
     public void EndGame(){
-
-    }
-    public void refresh(){
+        System.out.println("[DEBUG] EndGame() in SceneController");
+        executorService.shutdown();
+        finalController.endGame();
         stage.setScene(scene);
         stage.show();
     }
