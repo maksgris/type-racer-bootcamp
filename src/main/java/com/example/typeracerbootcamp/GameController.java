@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,8 +15,9 @@ import java.net.URL;
 import java.util.PrimitiveIterator;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
-public class GameController implements Initializable {
+public class GameController{
 
     private Random r = new Random();
     private String temp;
@@ -53,6 +55,8 @@ public class GameController implements Initializable {
     private Label label1;
     @FXML
     private Label labelinput;
+    @FXML
+    private Label labelTimer;
     public void load(boolean hit){
         if(hit){
             label1.setText(words[r.nextInt(words.length)]);
@@ -83,6 +87,16 @@ public class GameController implements Initializable {
             System.out.println("[DEBUG] too long!");
         }
     }
+    public void endGame(){
+        System.out.println("[DEBUG] game successfully ended!");
+        label1.setText("Game over!");
+        labelinput.setText("Press esc to go back to Main menu");
+
+    }
+    public void endgamelistener(String e){
+//        if(e== KeyCode.ESCAPE)
+
+    }
     public void delchar(){
         temp = labelinput.getText();
         try{
@@ -92,13 +106,5 @@ public class GameController implements Initializable {
             temp = "";
         }
         labelinput.setText(temp);
-    }
-//    public static void aquireStage(Stage s){
-//        stg = s;
-//    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("[DEBUG] initialize");
     }
 }

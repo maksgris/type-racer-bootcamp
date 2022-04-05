@@ -14,36 +14,59 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class SceneController {
+    private ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 
+    private FXMLLoader fxmlLoader;
+    private GameController gameController;
+    private GameController controller;
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
+    private GameController finalController;
+    private chrono timer;
     @FXML
     Button PlayGame;
 
     public void StartGame(ActionEvent e)  throws IOException  {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InGame.fxml"));
-        GameController controller = fxmlLoader.getController();
+        fxmlLoader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+        controller = fxmlLoader.getController();
         fxmlLoader.setController(controller = new GameController());
-        Parent root = fxmlLoader.load();
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 600,400);
+        root = fxmlLoader.load();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root, 600,400);
         controller.load(true);
-        GameController finalController = controller;
+        finalController = controller;
+        timer = new chrono(e);
+        timer.setroot(this,finalController);
+        executorService.scheduleAtFixedRate(timer,0,1, TimeUnit.SECONDS);
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent e) {
-                if (e.getCode() == KeyCode.ENTER) {
-                    System.out.println("[DEBUG] ENTER HIT");
-                    finalController.onEnter(e.getCode().toString());
+                if(timer.canplay()){
+                    if (e.getCode() == KeyCode.ENTER) {
+                        System.out.println("[DEBUG] ENTER HIT");
+                        finalController.onEnter(e.getCode().toString());
+                    }
+                    else if(e.getCode().toString().length()==1) {
+                        System.out.println("[DEBUG] LETTER HIT " + e.getText());
+                        finalController.onLetterPress(e.getText());
+                    }
+                    else if(e.getCode() == KeyCode.BACK_SPACE)
+                        finalController.delchar();
+                    System.out.println(e.getCode());
                 }
-                else if(e.getCode().toString().length()==1) {
-                    System.out.println("[DEBUG] LETTER HIT " + e.getText());
-                    finalController.onLetterPress(e.getText());
+                else{
+                    executorService.shutdown();
+                    finalController.endGame();
+                    System.out.println("[DEBUG] game over! time is" + timer.getTimer());
                 }
-                else if(e.getCode() == KeyCode.BACK_SPACE)
-                    finalController.delchar();
-                System.out.println(e.getCode());
-            }
+                }
+
         });
         stage.setScene(scene);
         stage.show();
@@ -51,27 +74,11 @@ public class SceneController {
     public void ExitGame() {
         Platform.exit();
     }
-}
+    public void EndGame(){
 
-//        try{
-//            controller.load(true);
-//        }
-//        catch (Exception exception){
-//            exception.printStackTrace();
-//        }
-//        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-//            @Override
-//            public void handle(KeyEvent e) {
-//                if (e.getCode() == KeyCode.ENTER) {
-//                    System.out.println("[DEBUG] ENTER HIT");
-//                    controller.onEnter(e.getCode().toString());
-//                }
-//                else if(e.getCode().toString().length()==1) {
-//                    System.out.println("[DEBUG] LETTER HIT " + e.getText());
-//                    controller.onLetterPress(e.getText());
-//                }
-//                else if(e.getCode() == KeyCode.BACK_SPACE)
-//                    controller.delchar();
-//                System.out.println(e.getCode());
-//            }
-//        });
+    }
+    public void refresh(){
+        stage.setScene(scene);
+        stage.show();
+    }
+}
