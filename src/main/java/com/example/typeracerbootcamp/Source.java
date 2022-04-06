@@ -23,13 +23,16 @@ public class Source extends Application {
         Scene scene = new Scene(root, 600, 400);
         String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Competitive Type Racing");
+        stage.setTitle("Type Racer");
         Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
         stage.getIcons().add(icon);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
+
+
+
     public void ChangeScene(FXMLLoader fxml) throws IOException{
         Parent pane = fxml.load();
         stg.getScene().setRoot(pane);

@@ -108,7 +108,7 @@ public class GameController{
         System.out.println("[DEBUG] game successfully ended from controller!");
         System.out.println("[DEBUG] wordsTotal: " + wordsTotal + " wordsHit: " + wordsHit  + " accuracy:" + accuracy + " wpm: " + wpm);
         label1.setText("Game over!\n wordsTotal: " + wordsTotal + " wordsHit: " + wordsHit  + " accuracy:" + accuracy + " wpm: " + wpm);
-        labelinput.setText("Press esc to go back to Main menu");
+        labelinput.setText("Press esc to go to Score board!");
     }
     public void endgamelistener() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));

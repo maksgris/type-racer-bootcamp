@@ -46,7 +46,7 @@ public class EndGameController {
             Stage stage = (Stage) label.getScene().getWindow();
             String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
             scene.getStylesheets().add(css);
-            stage.setTitle("Competitive Type Racing");
+            stage.setTitle("Type Racer");
             Image icon = new Image("file:src/main/java/images/image.png");
             stage.getIcons().add(icon);
             onLoad();
@@ -91,7 +91,7 @@ public class EndGameController {
         Stage stage = (Stage) scoreAccuracy.getScene().getWindow();
         String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Competitive Type Racing");
+        stage.setTitle("Type Racer");
         Image icon = new Image("file:src/main/java/images/image.png");
         stage.getIcons().add(icon);
         stage.setScene(scene);
