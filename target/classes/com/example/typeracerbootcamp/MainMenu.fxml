@@ -10,9 +10,9 @@
       <AnchorPane fx:id="myAnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
             <Button fx:id="PlayGame" layoutX="209.0" layoutY="155.0" mnemonicParsing="false" onAction="#StartGame" prefHeight="36.0" prefWidth="182.0" stylesheets="@application.css" text="1 Player" />
-            <Button fx:id="quitGame" layoutX="209.0" layoutY="284.0" mnemonicParsing="false" onAction="#ExitGame" prefHeight="15.0" prefWidth="182.0" stylesheets="@application.css" text="Quit" />
+            <Button fx:id="quitGame" layoutX="209.0" layoutY="280.0" mnemonicParsing="false" onAction="#ExitGame" prefHeight="15.0" prefWidth="182.0" stylesheets="@application.css" text="Quit" />
             <Label fx:id="myLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="68.0" prefHeight="19.0" prefWidth="600.0" stylesheets="@application.css" text="Type Racer " />
-            <Button fx:id="twoPlayers" layoutX="209.0" layoutY="225.0" mnemonicParsing="false" onAction="#StartGameOnline" prefHeight="27.0" prefWidth="182.0" stylesheets="@application.css" text="2 Players" />
+            <Button fx:id="twoPlayers" layoutX="209.0" layoutY="210.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" stylesheets="@application.css" text="2 Players" />
          </children>
       </AnchorPane>
    </children>

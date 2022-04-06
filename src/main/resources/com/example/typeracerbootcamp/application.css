@@ -31,7 +31,7 @@
 
 
 #myLabel{
-    -fx-font-size: 40;
+    -fx-font-size: 60;
     -fx-font-family: "Magneto";
     -fx-text-fill: linear-gradient(to right, greenyellow, indianred) ;
 
@@ -46,6 +46,7 @@
     -fx-font-size: 25;
     -fx-font-family: "CentSchbkCyrill BT";
     -fx-text-fill: white;
+    -fx-text-alignment: center;
 }
 #myAncorPane2{
     -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
@@ -53,7 +54,7 @@
     -fx-background-size: cover;
 }
 #myLabel1{
-    -fx-font-size: 40;
+    -fx-font-size: 60;
     -fx-font-family: "Magneto";
     -fx-text-fill: linear-gradient(to right, greenyellow, indianred) ;
 }
