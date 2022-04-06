@@ -5,54 +5,30 @@
 }
 
 .button{
-    -fx-background-image: url("../../../../../src/main/java/com/example/images/button1.png");
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/bup1.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-font-size: 25;
     -fx-font-family: "Lucida Console";
-    -fx-text-fill:   #0000ff;
+    -fx-text-fill:   black;
 }
 .button:hover{
-    -fx-background-image: url("../../../../../src/main/java/com/example/images/button3.png");
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/bhr2.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-font-size: 25;
     -fx-font-family: "Lucida Console";
-    -fx-text-fill:   #0000ff;
+    -fx-text-fill:   black;
 }
 .button:pressed{
-    -fx-background-image: url("../../../../../src/main/java/com/example/images/button2.png");
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/bdn3.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-font-size: 25;
     -fx-font-family: "Lucida Console";
-    -fx-text-fill:   #0000ff;
+    -fx-text-fill:   black;
 }
 
-#quitGame{
-    -fx-background-image: url("../../../../../src/main/java/com/example/images/button4.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-font-size: 25;
-    -fx-font-family: "Lucida Console";
-    -fx-text-fill:  #dc143c;
-}
-#quitGame:hover{
-    -fx-background-image: url("../../../../../src/main/java/com/example/images/button5.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-font-size: 25;
-    -fx-font-family: "Lucida Console";
-    -fx-text-fill:    #dc143c;
-}
-#quitGame:pressed{
-    -fx-background-image: url("../../../../../src/main/java/com/example/images/button2.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-font-size: 25;
-    -fx-font-family: "Lucida Console";
-    -fx-text-fill:    #dc143c;
-}
 
 #myLabel{
     -fx-font-size: 40;
@@ -83,11 +59,11 @@
 }
 
 #labelTimer{
-    -fx-background-image: url("../../../../../src/main/java/com/example/images/clock.png");
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/tv2.gif");
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: 90 90;
     -fx-font-size: 25;
     -fx-font-family: "CentSchbkCyrill BT";
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }

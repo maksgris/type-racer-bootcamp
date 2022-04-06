@@ -39,7 +39,6 @@ public class SceneController implements Initializable {
 
     @FXML
     Label myLabel;
-
     public void StartGame(ActionEvent e)  throws IOException  {
         fxmlLoader = new FXMLLoader(getClass().getResource("InGame.fxml"));
         controller = fxmlLoader.getController();
