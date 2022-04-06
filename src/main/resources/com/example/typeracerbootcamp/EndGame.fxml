@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="myAncorPane2" prefHeight="400.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.EndGameController">
+   <children>
+      <Label fx:id="myLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="62.0" prefHeight="19.0" prefWidth="600.0" stylesheets="@application.css" text="Type Racer " />
+      <Label fx:id="myLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="124.0" prefHeight="19.0" prefWidth="600.0" text="You have manage to tipe" />
+      <Button fx:id="BackToMeniu" layoutX="175.0" layoutY="318.0" mnemonicParsing="false" stylesheets="@application.css" text="Main Meniu" />
+      <Button fx:id="exitButton" layoutX="366.0" layoutY="318.0" mnemonicParsing="false" stylesheets="@application.css" text="Exit" />
+      <Label fx:id="score" alignment="CENTER" contentDisplay="RIGHT" layoutX="144.0" layoutY="183.0" prefHeight="19.0" prefWidth="147.0" text="Label" />
+      <Label fx:id="myLabel3" layoutX="337.0" layoutY="184.0" prefHeight="18.0" prefWidth="265.0" text="Words" />
+   </children>
+</AnchorPane>

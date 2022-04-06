@@ -28,6 +28,30 @@
     -fx-font-family: "Lucida Console";
     -fx-text-fill:   #0000ff;
 }
+#twoPlayers{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button1.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 25;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
+#twoPlayers:hover{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button3.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 25;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
+#twoPlayers:pressed{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 25;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
 #quitGame{
     -fx-background-image: url("../../../../../src/main/java/com/example/images/button4.png");
     -fx-background-repeat: no-repeat;
@@ -52,4 +76,70 @@
     -fx-font-size: 25;
     -fx-font-family: "CentSchbkCyrill BT";
     -fx-text-fill: white;
+}
+#myAncorPane2{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
+#myLabel1{
+    -fx-font-size: 40;
+    -fx-font-family: "Magneto";
+    -fx-text-fill: linear-gradient(to right, greenyellow, indianred) ;
+}
+#BackToMeniu{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button1.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 15;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
+#BackToMeniu:hover{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button3.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 15;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
+#BackToMeniu:pressed{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 15;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
+#exitButton{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button1.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 15;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
+#exitButton:hover{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button3.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 15;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
+#exitButton:pressed{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/button2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 15;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   #0000ff;
+}
+#labelTimer{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/clock.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 25;
+    -fx-font-family: "CentSchbkCyrill BT";
+    -fx-text-fill: black;
 }
