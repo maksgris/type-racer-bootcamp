@@ -9,12 +9,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -32,6 +34,10 @@ public class SceneController {
     private int time;
 
     @FXML
+    Label myLabel;
+
+
+    @FXML
     Button PlayGame;
 
     public void StartGame(ActionEvent e)  throws IOException  {
@@ -41,6 +47,8 @@ public class SceneController {
         root = fxmlLoader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root, 600,400);
+        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         controller.load(true);
         finalController = controller;
         time =5;
