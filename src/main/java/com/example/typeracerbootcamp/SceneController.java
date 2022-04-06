@@ -51,7 +51,7 @@ public class SceneController implements Initializable {
         scene.getStylesheets().add(css);
         controller.load(true);
         finalController = controller;
-        time = 15;                                                                                                          //timer
+        time = 15;
         Runnable timer = new Runnable() {
             @Override
             public void run() {
