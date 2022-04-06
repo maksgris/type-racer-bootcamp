@@ -24,8 +24,9 @@ public class Source extends Application {
         String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Competitive Type Racing");
-        Image icon = new Image("file:src/main/java/images/image.png");
+        Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
         stage.getIcons().add(icon);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
