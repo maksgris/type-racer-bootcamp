@@ -117,6 +117,15 @@ public class SceneController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    public void StartGameOnline(ActionEvent e) throws IOException{
+        FXMLLoader popup = new FXMLLoader(getClass().getResource("LoginAlert.fxml"));
+        OnlineGamePopup control = popup.getController();
+        Parent rot = popup.load();
+        Stage stg = new Stage();
+        Scene scn = new Scene(rot);
+        stg.setScene(scn);
+        stg.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

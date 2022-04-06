@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.LoginController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="400.0">
          <children>
@@ -17,7 +16,7 @@
             <Label layoutX="70.0" layoutY="79.0" text="Password:" />
             <Button layoutX="126.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Login" />
             <Button layoutX="215.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Register" />
-            <Button layoutX="334.0" layoutY="161.0" mnemonicParsing="false" text="Quit" />
+            <Button layoutX="334.0" layoutY="161.0" mnemonicParsing="false" onAction="#Back" text="Exit" />
          </children>
       </AnchorPane>
    </children>

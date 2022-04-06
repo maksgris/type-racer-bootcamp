@@ -1,6 +1,5 @@
 package com.example.typeracerbootcamp;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,8 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginController {
-
+public class RegisterController {
     public void Back(ActionEvent e) throws IOException {
         FXMLLoader popup = new FXMLLoader(getClass().getResource("LoginAlert.fxml"));
         OnlineGamePopup control = popup.getController();
