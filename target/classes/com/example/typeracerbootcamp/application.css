@@ -8,7 +8,7 @@
     -fx-background-image: url("../../../../../src/main/java/com/example/images/bup1.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
-    -fx-font-size: 25;
+    -fx-font-size: 15;
     -fx-font-family: "Lucida Console";
     -fx-text-fill:   black;
 }
@@ -16,7 +16,7 @@
     -fx-background-image: url("../../../../../src/main/java/com/example/images/bhr2.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
-    -fx-font-size: 25;
+    -fx-font-size: 15;
     -fx-font-family: "Lucida Console";
     -fx-text-fill:   black;
 }
@@ -24,7 +24,7 @@
     -fx-background-image: url("../../../../../src/main/java/com/example/images/bdn3.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
-    -fx-font-size: 25;
+    -fx-font-size: 15;
     -fx-font-family: "Lucida Console";
     -fx-text-fill:   black;
 }
@@ -46,6 +46,7 @@
     -fx-font-size: 25;
     -fx-font-family: "CentSchbkCyrill BT";
     -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian,black,0.6,0.7,0.2,0.3);
     -fx-text-alignment: center;
 }
 #myAncorPane2{

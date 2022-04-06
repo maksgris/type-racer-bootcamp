@@ -8,18 +8,18 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.RegisterController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="400.0">
+      <AnchorPane prefHeight="400.0" prefWidth="400.0" stylesheets="@application.css">
          <children>
-            <TextField layoutX="200.0" layoutY="37.0" />
-            <TextField layoutX="200.0" layoutY="68.0" />
-            <TextField layoutX="200.0" layoutY="99.0" />
-            <TextField layoutX="200.0" layoutY="130.0" />
+            <TextField layoutX="200.0" layoutY="43.0" />
+            <TextField layoutX="200.0" layoutY="74.0" />
+            <TextField layoutX="200.0" layoutY="105.0" />
+            <TextField layoutX="200.0" layoutY="136.0" />
             <Label alignment="CENTER_RIGHT" layoutY="41.0" prefHeight="17.0" prefWidth="200.0" text="Username:" />
             <Label alignment="CENTER_RIGHT" layoutY="72.0" prefHeight="17.0" prefWidth="200.0" text="E-mail:" />
             <Label alignment="CENTER_RIGHT" layoutY="103.0" prefHeight="17.0" prefWidth="200.0" text="Password:" />
             <Label alignment="CENTER_RIGHT" layoutY="134.0" prefHeight="17.0" prefWidth="200.0" text="Repeat password:" />
-            <Button layoutX="297.0" layoutY="164.0" mnemonicParsing="false" text="Register" />
-            <Button layoutX="334.0" layoutY="361.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+            <Button layoutX="259.0" layoutY="170.0" mnemonicParsing="false" text="Register" />
+            <Button layoutX="323.0" layoutY="360.0" mnemonicParsing="false" onAction="#Back" text="Back" />
             <Label fx:id="ErrorMessage" layoutX="186.0" layoutY="168.0" />
          </children>
       </AnchorPane>
