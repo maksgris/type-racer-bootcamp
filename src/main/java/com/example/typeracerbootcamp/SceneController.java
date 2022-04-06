@@ -14,6 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -36,10 +37,6 @@ public class SceneController {
     @FXML
     Label myLabel;
 
-
-    @FXML
-    Button PlayGame;
-
     public void StartGame(ActionEvent e)  throws IOException  {
         fxmlLoader = new FXMLLoader(getClass().getResource("InGame.fxml"));
         controller = fxmlLoader.getController();
@@ -51,12 +48,13 @@ public class SceneController {
         scene.getStylesheets().add(css);
         controller.load(true);
         finalController = controller;
-        time =5;
+        time = 15;                                                                                                          //timer
         Runnable timer = new Runnable() {
             @Override
             public void run() {
                 Platform.runLater(() -> {
                     time--;
+                    finalController.updateTimer(time);
                     System.out.println("[DEBUG] timer runing... " + time);
                     if(time<=0) {
                         System.out.println("[DEBUG] horay! " + time + " <= 0");
@@ -95,10 +93,12 @@ public class SceneController {
                 }
 
         });
-        scene.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
-            public void handle(MouseEvent mouseEvent) {
+            public void handle(WindowEvent windowEvent) {
                 executorService.shutdown();
+                System.out.println("[DEBUG] Close request init.");
                 System.out.println("[DEBUG] thread closed");
             }
         });

@@ -117,4 +117,7 @@ public class GameController{
         }
         labelinput.setText(temp);
     }
+    public void updateTimer(int time){
+        labelTimer.setText(String.valueOf(time));
+    }
 }
