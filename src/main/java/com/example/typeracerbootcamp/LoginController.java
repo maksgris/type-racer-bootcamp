@@ -23,9 +23,18 @@ public class LoginController {
         String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scn.getStylesheets().add(css);
         stg.setTitle("Competitive Type Racing");
-        Image icon = new Image("file:src/main/java/images/image.png");
-        stg.getIcons().add(icon);
+        Image icon2 = new Image("file:src/main/java/images/image.png");
+        stg.getIcons().add(icon2);
         stg.setScene(scn);
         stg.show();
+    }
+    public void toRegister(ActionEvent e) throws IOException{
+        System.out.println("[DEBUG]Initializing register screen...");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Register.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

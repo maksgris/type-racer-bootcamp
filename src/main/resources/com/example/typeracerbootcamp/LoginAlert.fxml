@@ -7,7 +7,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.OnlineGamePopup">
    <children>
-      <AnchorPane prefHeight="148.0" prefWidth="542.0" stylesheets="@application.css">
+      <AnchorPane fx:id="myAnchorPane4" prefHeight="148.0" prefWidth="542.0" stylesheets="@application.css">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="58.0" prefHeight="31.0" prefWidth="549.0" text="You need an account to play multiplayer!" />
             <Button fx:id="Login" layoutX="122.0" layoutY="111.0" mnemonicParsing="false" onAction="#Login" text="Login" />

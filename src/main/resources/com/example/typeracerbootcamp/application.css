@@ -68,4 +68,18 @@
     -fx-font-size: 25;
     -fx-font-family: "CentSchbkCyrill BT";
     -fx-text-fill: white;
+}#myAnchorPane3{
+     -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
+     -fx-background-repeat: no-repeat;
+     -fx-background-size: cover;
+ }
+ #myAnchorPane4{
+     -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
+     -fx-background-repeat: no-repeat;
+     -fx-background-size: cover;
+ }
+#myAnchorPane5{
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
 }
