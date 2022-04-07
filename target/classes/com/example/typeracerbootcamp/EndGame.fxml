@@ -7,8 +7,8 @@
 <AnchorPane fx:id="myAncorPane2" prefHeight="400.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="myLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="62.0" prefHeight="19.0" prefWidth="600.0" stylesheets="@application.css" text="Type Racer " />
-      <Label fx:id="myLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="124.0" prefHeight="19.0" prefWidth="600.0" text="You have manage to tipe" />
-      <Button fx:id="BackToMeniu" layoutX="81.0" layoutY="318.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="189.0" stylesheets="@application.css" text="Main Meniu" />
+      <Label fx:id="myLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="124.0" prefHeight="19.0" prefWidth="600.0" text="You have managed to type" />
+      <Button fx:id="BackToMeniu" layoutX="81.0" layoutY="318.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="189.0" stylesheets="@application.css" text="Main Menu" />
       <Button fx:id="exitButton" layoutX="323.0" layoutY="318.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="189.0" stylesheets="@application.css" text="Exit" />
       <Label fx:id="scoreWordsHit" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="160.0" prefHeight="36.0" prefWidth="291.0" text="words: " />
       <Label fx:id="myLabel3" layoutX="291.0" layoutY="160.0" prefHeight="18.0" prefWidth="265.0" text="Words" />

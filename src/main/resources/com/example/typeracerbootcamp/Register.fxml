@@ -10,10 +10,10 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="400.0">
          <children>
-            <TextField layoutX="200.0" layoutY="37.0" />
-            <TextField layoutX="200.0" layoutY="68.0" />
-            <TextField layoutX="200.0" layoutY="99.0" />
-            <TextField layoutX="200.0" layoutY="130.0" />
+            <TextField fx:id="uname" layoutX="200.0" layoutY="37.0" />
+            <TextField fx:id="email" layoutX="200.0" layoutY="68.0" />
+            <TextField fx:id="pword" layoutX="200.0" layoutY="99.0" />
+            <TextField fx:id="rpword" layoutX="200.0" layoutY="130.0" />
             <Label alignment="CENTER_RIGHT" layoutY="41.0" prefHeight="17.0" prefWidth="200.0" text="Username:" />
             <Label alignment="CENTER_RIGHT" layoutY="72.0" prefHeight="17.0" prefWidth="200.0" text="E-mail:" />
             <Label alignment="CENTER_RIGHT" layoutY="103.0" prefHeight="17.0" prefWidth="200.0" text="Password:" />

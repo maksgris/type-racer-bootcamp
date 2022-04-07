@@ -15,7 +15,7 @@
             <Label layoutX="68.0" layoutY="38.0" text="Username:" />
             <Label layoutX="70.0" layoutY="79.0" text="Password:" />
             <Button layoutX="126.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Login" />
-            <Button layoutX="215.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Register" />
+            <Button layoutX="215.0" layoutY="108.0" mnemonicParsing="false" onAction="#toRegister" prefHeight="25.0" prefWidth="60.0" text="Register" />
             <Button layoutX="334.0" layoutY="161.0" mnemonicParsing="false" onAction="#Back" text="Exit" />
          </children>
       </AnchorPane>
