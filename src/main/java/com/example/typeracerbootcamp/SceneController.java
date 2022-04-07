@@ -14,10 +14,14 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -38,6 +42,9 @@ public class SceneController implements Initializable {
     private int time;
 
     @FXML
+    private MediaView mediaView;
+
+    @FXML
     Label myLabel;
     public void StartGame(ActionEvent e)  throws IOException  {
         fxmlLoader = new FXMLLoader(getClass().getResource("InGame.fxml"));
@@ -50,6 +57,21 @@ public class SceneController implements Initializable {
         scene.getStylesheets().add(css);
         controller.load(true);
         finalController = controller;
+        if (mediaView.getMediaPlayer() == null) {
+            try {
+                String fileName = getClass().getResource("/Redline.mp3").toURI().toString();
+                Media media = new Media(fileName);
+                MediaPlayer player = new MediaPlayer(media);
+                mediaView.setMediaPlayer(player);
+
+            } catch (URISyntaxException exception) {
+                exception.printStackTrace();
+            }
+
+        }
+        mediaView.getMediaPlayer().seek(mediaView.getMediaPlayer().getStartTime());
+        mediaView.getMediaPlayer().play();
+
         time = 15;
         Runnable timer = new Runnable() {
             @Override

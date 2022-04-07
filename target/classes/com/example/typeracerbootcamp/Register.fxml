@@ -8,7 +8,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.RegisterController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="400.0" stylesheets="@application.css">
+      <AnchorPane fx:id="myAnchorPane5" prefHeight="400.0" prefWidth="400.0" stylesheets="@application.css">
          <children>
             <TextField layoutX="200.0" layoutY="43.0" />
             <TextField layoutX="200.0" layoutY="74.0" />
