@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.LoginController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="400.0">
          <children>
-            <TextField fx:id="username" layoutX="126.0" layoutY="34.0" />
-            <TextField fx:id="password" layoutX="126.0" layoutY="75.0" />
+            <TextField fx:id="uname" layoutX="126.0" layoutY="34.0" />
+            <TextField fx:id="pass" layoutX="126.0" layoutY="75.0" />
             <Label layoutX="68.0" layoutY="38.0" text="Username:" />
             <Label layoutX="70.0" layoutY="79.0" text="Password:" />
-            <Button layoutX="126.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Login" />
+            <Button layoutX="126.0" layoutY="108.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="60.0" text="Login" />
             <Button layoutX="215.0" layoutY="108.0" mnemonicParsing="false" onAction="#toRegister" prefHeight="25.0" prefWidth="60.0" text="Register" />
             <Button layoutX="334.0" layoutY="161.0" mnemonicParsing="false" onAction="#Back" text="Exit" />
          </children>

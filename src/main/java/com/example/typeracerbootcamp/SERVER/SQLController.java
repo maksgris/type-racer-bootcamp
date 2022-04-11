@@ -1,7 +1,8 @@
-package com.example.typeracerbootcamp;
+package com.example.typeracerbootcamp.SERVER;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class SQLController {
@@ -11,12 +12,14 @@ public class SQLController {
     private String SQLpass = "";
     private Connection connection;
     private String query;
+    Statement statement;
 
     SQLController() {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url,SQLuser,SQLpass);
-            System.out.println("[DEBUG] Connection successful! " + url);
+            statement = connection.createStatement();
+            System.out.println("[DEBUG SERVER SQL] Connection to sql successful! " + url);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -24,12 +27,11 @@ public class SQLController {
     public boolean registerUser(String username, String email,String password,String passwordr){
         query="INSERT INTO `useraccounts`( `userName`, `email`, `password`, `ELO`) VALUES (\""+username+"\",\""+email+"\",\""+password+"\",0)";
         if(password.equals(passwordr)) {
-            System.out.println("[DEBUG] passwords match!");
+            System.out.println("[DEBUG SERVER SQL] passwords match!");
             try {
-                System.out.println("[DEBUG] Creating User...");
-                Statement statement = connection.createStatement();
+                System.out.println("[DEBUG SERVER SQL] Creating User...");
                 if (statement.executeUpdate(query) == 1) {
-                    System.out.println("[DEBUG] A new client has been added!");
+                    System.out.println("[DEBUG SERVER SQL] A new client has been added!");
                     return true;
                 } else {
                     return false;
@@ -38,9 +40,21 @@ public class SQLController {
                 e.printStackTrace();
             }
         }else{
-            System.out.println("[DEBUG] passwords do not match! " + password.trim() + " != " + passwordr.trim());
+            System.out.println("[DEBUG SERVER SQL] passwords do not match! " + password.trim() + " != " + passwordr.trim());
             return false;
         }
         return false;
+    }
+    public int loginUser(String uname,String pass){
+        query="SELECT * FROM `useraccounts` WHERE userName = \""+uname+"\" AND password = \""+pass+"\";";
+        try{
+            ResultSet set = statement.executeQuery(query);
+            while (set.next()){
+                return set.getInt(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
     }
 }

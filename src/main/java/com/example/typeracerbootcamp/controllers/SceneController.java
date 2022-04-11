@@ -1,4 +1,4 @@
-package com.example.typeracerbootcamp;
+package com.example.typeracerbootcamp.controllers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -9,11 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -119,7 +117,6 @@ public class SceneController implements Initializable {
     }
     public void StartGameOnline(ActionEvent e) throws IOException{
         FXMLLoader popup = new FXMLLoader(getClass().getResource("LoginAlert.fxml"));
-        OnlineGamePopup control = popup.getController();
         Parent rot = popup.load();
         Stage stg = new Stage();
         Scene scn = new Scene(rot);

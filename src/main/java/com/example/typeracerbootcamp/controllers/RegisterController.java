@@ -1,5 +1,6 @@
-package com.example.typeracerbootcamp;
+package com.example.typeracerbootcamp.controllers;
 
+import com.example.typeracerbootcamp.ServerLink;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,11 @@ public class RegisterController {
     private TextField pword;
     @FXML
     private TextField rpword;
+    static ServerLink link;
+
+    public static void instantiateLink(ServerLink linkin){
+        link = linkin;
+    }
 
     public void Back(ActionEvent e) throws IOException {
         FXMLLoader popup = new FXMLLoader(getClass().getResource("LoginAlert.fxml"));
@@ -33,13 +39,8 @@ public class RegisterController {
         stg.show();
     }
     public void register(ActionEvent e) throws IOException{
-        ServerLink link = new ServerLink();
         System.out.println("[DEBUG] serverLink established succesfully...");
-        System.out.println("[DEBUG] calling 3 ping tests...");
-        link.test();
-        link.test();
-        link.test();
-        System.out.println("[DEBUG] tests done!");
+        link.regUser(uname.getText(), email.getText(), pword.getText(), rpword.getText());
 //        System.out.println("[DEBUG] executing SQL link and user registration...");
 //        SQLController dblink = new SQLController();
 //        if(dblink.registerUser(uname.getText(), email.getText(), pword.getText(), rpword.getText())){

@@ -1,20 +1,20 @@
-package com.example.typeracerbootcamp;
+package com.example.typeracerbootcamp.controllers;
 
-import javafx.application.Platform;
+import com.example.typeracerbootcamp.ServerLink;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class OnlineGamePopup {
-
+    ServerLink link;
     public void Login(ActionEvent e) throws IOException {
+        link = new ServerLink();
+        LoginController.instantiateLink(link);
         System.out.println("[DEBUG]Initializing login screen...");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
         Parent root = fxmlLoader.load();
@@ -24,6 +24,8 @@ public class OnlineGamePopup {
         stage.show();
     }
     public void Register(ActionEvent e) throws IOException{
+        link = new ServerLink();
+        RegisterController.instantiateLink(link);
         System.out.println("[DEBUG]Initializing register screen...");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Register.fxml"));
         Parent root = fxmlLoader.load();

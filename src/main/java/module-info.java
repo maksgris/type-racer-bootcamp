@@ -7,4 +7,8 @@ module com.example.typeracerbootcamp {
 
     opens com.example.typeracerbootcamp to javafx.fxml;
     exports com.example.typeracerbootcamp;
+    exports com.example.typeracerbootcamp.SERVER;
+    opens com.example.typeracerbootcamp.SERVER to javafx.fxml;
+    exports com.example.typeracerbootcamp.controllers;
+    opens com.example.typeracerbootcamp.controllers to javafx.fxml;
 }
