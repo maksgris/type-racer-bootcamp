@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -20,6 +21,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.application.HostServices;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -41,6 +43,19 @@ public class SceneController implements Initializable {
     private Scene scene;
     private GameController finalController;
     private int time;
+
+    @FXML
+    private Hyperlink hyperlink;
+
+    private HostServices hostServices;
+
+    public HostServices getHostServices() {
+        return hostServices;
+    }
+
+    public void setHostServices(HostServices hostServices) {
+        this.hostServices = hostServices;
+    }
 
     @FXML
     private MediaView mediaView;
@@ -118,7 +133,6 @@ public class SceneController implements Initializable {
                     }
                 }
                 }
-
         });
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -132,6 +146,10 @@ public class SceneController implements Initializable {
         });
         stage.setScene(scene);
         stage.show();
+    }
+    public void OpenLink() throws URISyntaxException, IOException {
+        System.out.println("Link clicked!");
+        getHostServices().showDocument("https://github.com/maksgris/type-racer-bootcamp");
     }
     public void ExitGame() {
         Platform.exit();
