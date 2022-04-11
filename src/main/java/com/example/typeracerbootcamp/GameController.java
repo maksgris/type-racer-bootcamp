@@ -121,7 +121,7 @@ public class GameController{
         String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Competitive Type Racing");
-        Image icon = new Image("file:src/main/java/images/image.png");
+        Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
         stage.getIcons().add(icon);
         controller.init(label1);
         stage.setScene(scene);

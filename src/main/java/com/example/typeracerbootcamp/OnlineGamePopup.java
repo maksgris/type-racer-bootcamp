@@ -27,6 +27,7 @@ public class OnlineGamePopup {
         stage.setTitle("Competitive Type Racing");
         Image icon = new Image("file:src/main/java/images/image.png");
         stage.getIcons().add(icon);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
@@ -41,6 +42,7 @@ public class OnlineGamePopup {
         stage.setTitle("Competitive Type Racing");
         Image icon = new Image("file:src/main/java/images/image.png");
         stage.getIcons().add(icon);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
