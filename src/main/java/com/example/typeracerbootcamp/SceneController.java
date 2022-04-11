@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -70,6 +71,7 @@ public class SceneController implements Initializable {
 
         }
         mediaView.getMediaPlayer().seek(mediaView.getMediaPlayer().getStartTime());
+        mediaView.getMediaPlayer().setVolume(0.1);
         mediaView.getMediaPlayer().play();
 
         time = 15;
@@ -108,6 +110,7 @@ public class SceneController implements Initializable {
                 }
                 if(e.getCode()==KeyCode.ESCAPE){
                     try{
+                        mediaView.getMediaPlayer().stop();
                         executorService.shutdown();
                         finalController.endgamelistener();
                     }catch (Exception exception){
@@ -121,6 +124,7 @@ public class SceneController implements Initializable {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
+                mediaView.getMediaPlayer().stop();
                 executorService.shutdown();
                 System.out.println("[DEBUG] Close request init.");
                 System.out.println("[DEBUG] thread closed");
@@ -144,6 +148,9 @@ public class SceneController implements Initializable {
         OnlineGamePopup control = popup.getController();
         Parent rot = popup.load();
         Stage stg = new Stage();
+        stg.setTitle("Competitive Type Racing");
+        Image icon = new Image("file:src/main/java/images/image.png");
+        stg.getIcons().add(icon);
         Scene scn = new Scene(rot);
         stg.setScene(scn);
         stg.show();
