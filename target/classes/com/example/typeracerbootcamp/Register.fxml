@@ -18,7 +18,7 @@
             <Label alignment="CENTER_RIGHT" layoutY="72.0" prefHeight="17.0" prefWidth="200.0" text="E-mail:" />
             <Label alignment="CENTER_RIGHT" layoutY="103.0" prefHeight="17.0" prefWidth="200.0" text="Password:" />
             <Label alignment="CENTER_RIGHT" layoutY="134.0" prefHeight="17.0" prefWidth="200.0" text="Repeat password:" />
-            <Button layoutX="297.0" layoutY="164.0" mnemonicParsing="false" text="Register" />
+            <Button layoutX="297.0" layoutY="164.0" mnemonicParsing="false" onAction="#register" text="Register" />
             <Button layoutX="334.0" layoutY="361.0" mnemonicParsing="false" onAction="#Back" text="Back" />
             <Label fx:id="ErrorMessage" layoutX="186.0" layoutY="168.0" />
          </children>
