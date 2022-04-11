@@ -1,5 +1,6 @@
 package com.example.typeracerbootcamp;
 
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,13 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -43,19 +42,6 @@ public class SceneController implements Initializable {
     private Scene scene;
     private GameController finalController;
     private int time;
-
-    @FXML
-    private Hyperlink hyperlink;
-
-    private HostServices hostServices;
-
-    public HostServices getHostServices() {
-        return hostServices;
-    }
-
-    public void setHostServices(HostServices hostServices) {
-        this.hostServices = hostServices;
-    }
 
     @FXML
     private MediaView mediaView;
@@ -147,9 +133,9 @@ public class SceneController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void OpenLink() throws URISyntaxException, IOException {
-        System.out.println("Link clicked!");
-        getHostServices().showDocument("https://github.com/maksgris/type-racer-bootcamp");
+    public void OpenLink() {
+        Source source = new Source();
+        source.getHostServices().showDocument("https://github.com/maksgris/type-racer-bootcamp");
     }
     public void ExitGame() {
         Platform.exit();

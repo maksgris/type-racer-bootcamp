@@ -90,7 +90,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
-#discordLink{
+#githubLink{
     -fx-background-image: url("../../../../../src/main/java/com/example/images/githublogo.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;

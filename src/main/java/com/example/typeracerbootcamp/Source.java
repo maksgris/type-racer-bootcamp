@@ -14,6 +14,7 @@ import java.util.Objects;
 
 
 public class Source extends Application {
+
     private static Stage stg;
     @Override
     public void start(Stage stage) throws IOException {
@@ -30,8 +31,6 @@ public class Source extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-
 
     public void ChangeScene(FXMLLoader fxml) throws IOException{
         Parent pane = fxml.load();
