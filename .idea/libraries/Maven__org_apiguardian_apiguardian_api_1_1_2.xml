@@ -7,7 +7,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-sources.jar!/" />
       <root url="file://$PROJECT_DIR$/../Libraries/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28/src/build/java" />
       <root url="file://$PROJECT_DIR$/../Libraries/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28/src/demo/java" />
       <root url="file://$PROJECT_DIR$/../Libraries/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28/src/generated/java" />
@@ -18,6 +17,7 @@
       <root url="file://$PROJECT_DIR$/../Libraries/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28/src/main/user-api/java" />
       <root url="file://$PROJECT_DIR$/../Libraries/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28/src/main/user-impl/java" />
       <root url="file://$PROJECT_DIR$/../Libraries/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28/src/test/java" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
