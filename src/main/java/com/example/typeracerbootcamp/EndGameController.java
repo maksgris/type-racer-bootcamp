@@ -58,7 +58,6 @@ public class EndGameController {
             mediaView.getMediaPlayer().seek(mediaView.getMediaPlayer().getStartTime());
             mediaView.getMediaPlayer().setVolume(volume);
             mediaView.getMediaPlayer().play();
-
         } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }

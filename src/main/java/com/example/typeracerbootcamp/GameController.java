@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-public class GameController{
+public class GameController {
 
     private int wordsHit;
     private int wordsTotal;
