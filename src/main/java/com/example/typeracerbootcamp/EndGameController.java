@@ -14,12 +14,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static com.example.typeracerbootcamp.SceneController.volume;
 
 public class EndGameController {
     private int wordsHit;
@@ -36,9 +42,26 @@ public class EndGameController {
     private Button BackToMeniu;
     @FXML
     private Button exitButton;
+    @FXML
+    private MediaView mediaView;
 
     public void init(Label label){
         System.out.println("[DEBUG] initialization...");
+        MediaView mediaView = new MediaView();
+        if (mediaView.getMediaPlayer() != null)
+            mediaView.getMediaPlayer().stop();
+        try {
+            String fileName = getClass().getResource("/ScoreScreen.mp3").toURI().toString();
+            Media media = new Media(fileName);
+            MediaPlayer player = new MediaPlayer(media);
+            mediaView.setMediaPlayer(player);
+            mediaView.getMediaPlayer().seek(mediaView.getMediaPlayer().getStartTime());
+            mediaView.getMediaPlayer().setVolume(volume);
+            mediaView.getMediaPlayer().play();
+
+        } catch (URISyntaxException exception) {
+            exception.printStackTrace();
+        }
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
             Parent root = fxmlLoader.load();
@@ -72,7 +95,6 @@ public class EndGameController {
             e.printStackTrace();
         }
     }
-
     public void onLoad(){
         scoreWordsHit.setText(String.valueOf(wordsHit)+" ");
         scoreAccuracy.setText(String.valueOf(accuracy*100)+"% ");

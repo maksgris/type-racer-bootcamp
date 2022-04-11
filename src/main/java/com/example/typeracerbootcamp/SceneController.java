@@ -2,6 +2,8 @@ package com.example.typeracerbootcamp;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -42,9 +45,13 @@ public class SceneController implements Initializable {
     private Scene scene;
     private GameController finalController;
     private int time;
+    static double volume = 0.1;
 
     @FXML
     private MediaView mediaView;
+
+    @FXML
+    private Slider soundSlider;
 
     @FXML
     Label myLabel;
@@ -59,21 +66,23 @@ public class SceneController implements Initializable {
         scene.getStylesheets().add(css);
         controller.load(true);
         finalController = controller;
-        if (mediaView.getMediaPlayer() == null) {
-            try {
-                String fileName = getClass().getResource("/Redline.mp3").toURI().toString();
-                Media media = new Media(fileName);
-                MediaPlayer player = new MediaPlayer(media);
-                mediaView.setMediaPlayer(player);
 
-            } catch (URISyntaxException exception) {
-                exception.printStackTrace();
-            }
+        //  Media Player
 
+        if (mediaView.getMediaPlayer() != null)
+            mediaView.getMediaPlayer().stop();
+        try {
+            String fileName = getClass().getResource("/Redline.mp3").toURI().toString();
+            Media media = new Media(fileName);
+            MediaPlayer player = new MediaPlayer(media);
+            mediaView.setMediaPlayer(player);
+            mediaView.getMediaPlayer().seek(mediaView.getMediaPlayer().getStartTime());
+            mediaView.getMediaPlayer().setVolume(volume);
+            mediaView.getMediaPlayer().play();
+
+        } catch (URISyntaxException exception) {
+            exception.printStackTrace();
         }
-        mediaView.getMediaPlayer().seek(mediaView.getMediaPlayer().getStartTime());
-        mediaView.getMediaPlayer().setVolume(0.1);
-        mediaView.getMediaPlayer().play();
 
         time = 15;
         Runnable timer = new Runnable() {
@@ -118,7 +127,7 @@ public class SceneController implements Initializable {
                         exception.printStackTrace();
                     }
                 }
-                }
+            }
         });
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -137,17 +146,22 @@ public class SceneController implements Initializable {
         Source source = new Source();
         source.getHostServices().showDocument("https://github.com/maksgris/type-racer-bootcamp");
     }
+    public void SetSound() {
+        volume = soundSlider.getValue();
+        mediaView.getMediaPlayer().setVolume(volume);
+        System.out.println("[DEBUG] SetSound() in SceneController, volume = " + volume);
+    }
     public void ExitGame() {
         Platform.exit();
     }
-    public void EndGame(){
+    public void EndGame() {
         System.out.println("[DEBUG] EndGame() in SceneController");
         executorService.shutdown();
         finalController.endGame();
         stage.setScene(scene);
         stage.show();
     }
-    public void StartGameOnline(ActionEvent e) throws IOException{
+    public void StartGameOnline(ActionEvent e) throws IOException {
         FXMLLoader popup = new FXMLLoader(getClass().getResource("LoginAlert.fxml"));
         OnlineGamePopup control = popup.getController();
         Parent rot = popup.load();
@@ -162,6 +176,17 @@ public class SceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            String fileName = getClass().getResource("/MainMenu.mp3").toURI().toString();
+            Media media = new Media(fileName);
+            MediaPlayer player = new MediaPlayer(media);
+            mediaView.setMediaPlayer(player);
+            mediaView.getMediaPlayer().seek(mediaView.getMediaPlayer().getStartTime());
+            mediaView.getMediaPlayer().setVolume(volume);
+            mediaView.getMediaPlayer().play();
 
+        } catch (URISyntaxException exception) {
+            exception.printStackTrace();
+        }
     }
 }

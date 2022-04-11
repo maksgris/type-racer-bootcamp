@@ -95,3 +95,12 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
+.slider .track {
+    -fx-pref-width: 8px;
+    -fx-background-color: linear-gradient(to bottom, purple, magenta);
+}
+.slider .thumb {
+    -fx-pref-height: 17px;
+    -fx-pref-width: 17px;
+    -fx-background-color: linear-gradient(to bottom, yellow, deeppink, magenta, purple);
+}
