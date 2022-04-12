@@ -62,11 +62,11 @@ public class EndGameController {
             exception.printStackTrace();
         }
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/EndGame.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root, 600,400);
             Stage stage = (Stage) label.getScene().getWindow();
-            String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+            String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
             scene.getStylesheets().add(css);
             stage.setTitle("Type Racer");
             Image icon = new Image("file:src/main/java/images/image.png");
@@ -106,11 +106,11 @@ public class EndGameController {
         this.wpm = wpm;
     }
     public void MainMenu() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/MainMenu.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600,400);
         Stage stage = (Stage) scoreAccuracy.getScene().getWindow();
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Type Racer");
         Image icon = new Image("file:src/main/java/images/image.png");

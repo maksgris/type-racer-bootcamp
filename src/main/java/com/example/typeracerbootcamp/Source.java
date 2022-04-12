@@ -19,10 +19,10 @@ public class Source extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stg = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Source.class.getResource("MainMenu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Source.class.getResource("/com/example/typeracerbootcamp/MainMenu.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600, 400);
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Type Racer");
         Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");

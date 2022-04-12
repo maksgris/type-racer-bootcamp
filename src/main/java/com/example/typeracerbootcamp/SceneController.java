@@ -56,13 +56,13 @@ public class SceneController implements Initializable {
     @FXML
     Label myLabel;
     public void StartGame(ActionEvent e)  throws IOException  {
-        fxmlLoader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+        fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/InGame.fxml"));
         controller = fxmlLoader.getController();
         fxmlLoader.setController(controller = new GameController());
         root = fxmlLoader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root, 600,400);
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         controller.load(true);
         finalController = controller;
@@ -162,7 +162,7 @@ public class SceneController implements Initializable {
         stage.show();
     }
     public void StartGameOnline(ActionEvent e) throws IOException {
-        FXMLLoader popup = new FXMLLoader(getClass().getResource("LoginAlert.fxml"));
+        FXMLLoader popup = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/LoginAlert.fxml"));
         OnlineGamePopup control = popup.getController();
         Parent rot = popup.load();
         Stage stg = new Stage();

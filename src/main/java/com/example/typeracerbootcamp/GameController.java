@@ -118,7 +118,7 @@ public class GameController {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600,400);
         Stage stage = (Stage) label1.getScene().getWindow();
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Competitive Type Racing");
         Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");

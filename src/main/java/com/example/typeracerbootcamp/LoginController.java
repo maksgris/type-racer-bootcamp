@@ -15,12 +15,12 @@ import java.util.Objects;
 public class LoginController {
 
     public void Back(ActionEvent e) throws IOException {
-        FXMLLoader popup = new FXMLLoader(getClass().getResource("LoginAlert.fxml"));
+        FXMLLoader popup = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/LoginAlert.fxml"));
         OnlineGamePopup control = popup.getController();
         Parent rot = popup.load();
         Stage stg = (Stage)((Node)e.getSource()).getScene().getWindow();
         Scene scn = new Scene(rot);
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scn.getStylesheets().add(css);
         stg.setTitle("Competitive Type Racing");
         Image icon2 = new Image("file:src/main/java/images/image.png");
@@ -30,7 +30,7 @@ public class LoginController {
     }
     public void toRegister(ActionEvent e) throws IOException{
         System.out.println("[DEBUG]Initializing register screen...");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Register.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/Register.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

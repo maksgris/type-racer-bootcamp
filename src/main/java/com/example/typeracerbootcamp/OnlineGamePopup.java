@@ -18,11 +18,11 @@ public class OnlineGamePopup {
 
     public void Login(ActionEvent e) throws IOException {
         System.out.println("[DEBUG]Initializing login screen...");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/Login.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Competitive Type Racing");
         Image icon = new Image("file:src/main/java/images/image.png");
@@ -33,11 +33,11 @@ public class OnlineGamePopup {
     }
     public void Register(ActionEvent e) throws IOException{
         System.out.println("[DEBUG]Initializing register screen...");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Register.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/Register.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Competitive Type Racing");
         Image icon = new Image("file:src/main/java/images/image.png");
