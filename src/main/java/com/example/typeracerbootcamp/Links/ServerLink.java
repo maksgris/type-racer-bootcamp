@@ -1,4 +1,4 @@
-package com.example.typeracerbootcamp;
+package com.example.typeracerbootcamp.Links;
 
 import java.io.*;
 import java.net.Socket;
@@ -44,7 +44,7 @@ public class ServerLink {
             System.out.println("[DEBUG] failed to register!");
         }
     }
-    public void logUser(String uname, String pass){
+    public String logUser(String uname, String pass){
         String response ="";
         try{
             bufferedWriter.write("LOGIN");bufferedWriter.newLine();
@@ -57,12 +57,15 @@ public class ServerLink {
             response = bufferedReader.readLine();
             if(response.equals("Success")){
                 System.out.println("[DEBUG] Login successful!");
+                return uname;
             }
             else{
                 System.out.println("[DEBUG] Login failed!");
+                return null;
             }
         }catch (Exception exception){
             exception.printStackTrace();
         }
+        return null;
     }
 }

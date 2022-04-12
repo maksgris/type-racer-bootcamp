@@ -12,7 +12,7 @@ import java.util.Objects;
 
 
 public class Source extends Application {
-
+    private static String nickname;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Source.class.getResource("MainMenu.fxml"));
@@ -29,5 +29,11 @@ public class Source extends Application {
     }
     public static void main(String[] args) {
         launch();
+    }
+    public static void injectNick(String nick){
+        nickname = nick;
+    }
+    public static String outNick(){
+        return nickname;
     }
 }

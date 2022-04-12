@@ -51,6 +51,11 @@ public class SceneController implements Initializable {
 
     @FXML
     Label myLabel;
+
+    @FXML
+    Label LabelNick;
+    static Label static_LabelNick;
+
     public void StartGame(ActionEvent e)  throws IOException  {
         fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/InGame.fxml"));
         controller = fxmlLoader.getController();
@@ -172,6 +177,7 @@ public class SceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        static_LabelNick = LabelNick;
         try {
             String fileName = getClass().getResource("/MainMenu.mp3").toURI().toString();
             Media media = new Media(fileName);
@@ -180,9 +186,14 @@ public class SceneController implements Initializable {
             mediaView.getMediaPlayer().seek(mediaView.getMediaPlayer().getStartTime());
             mediaView.getMediaPlayer().setVolume(volume);
             mediaView.getMediaPlayer().play();
-
         } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
+        setnick("someone that should log in");
+    }
+    @FXML
+    public static void setnick(String nick){
+        static_LabelNick.setText("Welcome "+nick +"!");
+        System.out.println("[DEBUG] Nick set of LabelNick to " + nick);
     }
 }

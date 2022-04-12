@@ -7,10 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.SceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.SceneController">
    <children>
       <AnchorPane fx:id="myAnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
+            <Label fx:id="LabelNick" alignment="CENTER" contentDisplay="CENTER" layoutY="136.0" prefHeight="52.0" prefWidth="600.0" />
             <MediaView fx:id="mediaView" />
             <Button fx:id="PlayGame" layoutX="188.0" layoutY="190.0" mnemonicParsing="false" onAction="#StartGame" prefHeight="35.0" prefWidth="182.0" stylesheets="@application.css" text="1 Player" />
             <Button fx:id="quitGame" layoutX="188.0" layoutY="282.0" mnemonicParsing="false" onAction="#ExitGame" prefHeight="35.0" prefWidth="182.0" stylesheets="@application.css" text="Quit" />

@@ -11,4 +11,6 @@ module com.example.typeracerbootcamp {
     exports com.example.typeracerbootcamp.SERVER;
     opens com.example.typeracerbootcamp.SERVER to javafx.fxml;
     opens com.example.typeracerbootcamp.controllers to javafx.fxml;
+    exports com.example.typeracerbootcamp.Links;
+    opens com.example.typeracerbootcamp.Links to javafx.fxml;
 }

@@ -1,6 +1,6 @@
 package com.example.typeracerbootcamp.controllers;
 
-import com.example.typeracerbootcamp.ServerLink;
+import com.example.typeracerbootcamp.Links.ServerLink;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

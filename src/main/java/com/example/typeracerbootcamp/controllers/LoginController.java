@@ -1,6 +1,7 @@
 package com.example.typeracerbootcamp.controllers;
 
-import com.example.typeracerbootcamp.ServerLink;
+import com.example.typeracerbootcamp.Links.ServerLink;
+import com.example.typeracerbootcamp.Source;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,7 @@ public class LoginController {
     @FXML
     private TextField pass;
     static ServerLink link;
+    private String temp;
     public static void instantiateLink(ServerLink linkin){
         link = linkin;
     }
@@ -47,6 +49,15 @@ public class LoginController {
         stage.show();
     }
     public void Login(ActionEvent e){
-        link.logUser(uname.getText(),pass.getText());
+        temp=link.logUser(uname.getText(),pass.getText());
+        if(!temp.equals(null)){
+            Source.injectNick(temp);
+            SceneController.setnick(temp);
+            Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+            stage.close();
+            System.out.println("[DEBUG] Login successful! Nick should be set on MainMenu to " + Source.outNick());
+        }else{
+            System.out.println("[DEBUG] Error!");
+        }
     }
 }

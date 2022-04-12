@@ -62,6 +62,9 @@ public class Server {
                     bufferedWriter.newLine();
                     bufferedWriter.flush();
                     break;
+                case "":
+                    System.out.println("[DEBUG SERVER] skip step...");
+                    break;
                 default:
                     System.out.println("[DEBUG SERVER] INVALID ACTION: " + action);
                     break;

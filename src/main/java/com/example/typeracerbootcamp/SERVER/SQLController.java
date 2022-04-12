@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class SQLController {
 
-    private String url = "jdbc:mysql://192.168.1.252:3306/typeracerdb";
+    private String url = "jdbc:mysql://localhost:3306/typeracerdb";
     private String SQLuser = "root";
     private String SQLpass = "";
     private Connection connection;
