@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.RegisterController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.RegisterController">
    <children>
       <AnchorPane fx:id="myAnchorPane5" prefHeight="400.0" prefWidth="400.0" stylesheets="@application.css">
          <children>
-            <TextField layoutX="200.0" layoutY="43.0" />
-            <TextField layoutX="200.0" layoutY="74.0" />
-            <TextField layoutX="200.0" layoutY="105.0" />
-            <TextField layoutX="200.0" layoutY="136.0" />
+            <TextField fx:id="uname" layoutX="200.0" layoutY="43.0" />
+            <TextField fx:id="email" layoutX="200.0" layoutY="74.0" />
+            <TextField fx:id="pword" layoutX="200.0" layoutY="105.0" />
+            <TextField fx:id="rpword" layoutX="200.0" layoutY="136.0" />
             <Label alignment="CENTER_RIGHT" layoutY="41.0" prefHeight="17.0" prefWidth="200.0" text="Username:" />
             <Label alignment="CENTER_RIGHT" layoutY="72.0" prefHeight="17.0" prefWidth="200.0" text="E-mail:" />
             <Label alignment="CENTER_RIGHT" layoutY="103.0" prefHeight="17.0" prefWidth="200.0" text="Password:" />
             <Label alignment="CENTER_RIGHT" layoutY="134.0" prefHeight="17.0" prefWidth="200.0" text="Repeat password:" />
-            <Button layoutX="259.0" layoutY="170.0" mnemonicParsing="false" text="Register" />
+            <Button layoutX="259.0" layoutY="170.0" mnemonicParsing="false" onAction="#register" text="Register" />
             <Button layoutX="323.0" layoutY="360.0" mnemonicParsing="false" onAction="#Back" text="Back" />
             <Label fx:id="ErrorMessage" layoutX="186.0" layoutY="168.0" />
          </children>
