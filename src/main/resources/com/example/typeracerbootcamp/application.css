@@ -3,7 +3,6 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
-
 .button{
     -fx-background-image: url("../../../../../src/main/java/com/example/images/bup1.png");
     -fx-background-repeat: no-repeat;
@@ -28,8 +27,6 @@
     -fx-font-family: "Lucida Console";
     -fx-text-fill:   black;
 }
-
-
 #myLabel{
     -fx-font-size: 70;
     -fx-font-family: "Magneto";
@@ -104,6 +101,4 @@
     -fx-pref-width: 17px;
     -fx-background-color: linear-gradient(to bottom, yellow, deeppink, magenta, purple);
 }
-#muteButton {
 
-}

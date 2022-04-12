@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
@@ -153,18 +154,31 @@ public class SceneController implements Initializable {
         volume = soundSlider.getValue();
         mediaView.getMediaPlayer().setVolume(volume);
         System.out.println("[DEBUG] SetSound() in SceneController, volume = " + volume);
+        muted = false;
+        setUnmutePicture();
+    }
+    public void setMutePicture() {
+        ImageView mute = new ImageView(new Image("mute.png"));
+        mute.setFitHeight(35);
+        mute.setPreserveRatio(true);
+        muteButton.setGraphic(mute);
+    }
+    public void setUnmutePicture() {
+        ImageView unmute = new ImageView(new Image("unmute.png"));
+        unmute.setFitHeight(35);
+        unmute.setPreserveRatio(true);
+        muteButton.setGraphic(unmute);
     }
     public void Mute() {
-
         if(muted) {
+            setUnmutePicture();
             mediaView.getMediaPlayer().setVolume(volume);
             System.out.println("[DEBUG] Mute() in SceneController, volume = " + volume);
-            //System.out.println("UNMUTED");
             muted = !muted;
         } else {
+            setMutePicture();
             mediaView.getMediaPlayer().setVolume(0);
             System.out.println("[DEBUG] Mute() in SceneController, volume = 0");
-            //System.out.println("MUTED");
             muted = !muted;
         }
     }
@@ -190,7 +204,6 @@ public class SceneController implements Initializable {
         stg.setScene(scn);
         stg.show();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {

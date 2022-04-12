@@ -3,7 +3,6 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
-
 .button{
     -fx-background-image: url("../../../../../src/main/java/com/example/images/bup1.png");
     -fx-background-repeat: no-repeat;
@@ -28,8 +27,6 @@
     -fx-font-family: "Lucida Console";
     -fx-text-fill:   black;
 }
-
-
 #myLabel{
     -fx-font-size: 70;
     -fx-font-family: "Magneto";
@@ -79,12 +76,12 @@
      -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
      -fx-background-repeat: no-repeat;
      -fx-background-size: cover;
- }
- #myAnchorPane4{
+}
+#myAnchorPane4{
      -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
      -fx-background-repeat: no-repeat;
      -fx-background-size: cover;
- }
+}
 #myAnchorPane5{
     -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
     -fx-background-repeat: no-repeat;
@@ -95,7 +92,6 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
-.check-box { }
 .slider .track {
     -fx-pref-width: 8px;
     -fx-background-color: linear-gradient(to bottom, purple, magenta);
@@ -105,3 +101,4 @@
     -fx-pref-width: 17px;
     -fx-background-color: linear-gradient(to bottom, yellow, deeppink, magenta, purple);
 }
+

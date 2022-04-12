@@ -23,7 +23,9 @@ public class Source extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600, 400);
         String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
+        String css2 = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/mutebutton.css")).toExternalForm();
         scene.getStylesheets().add(css);
+        scene.getStylesheets().add(css2);
         stage.setTitle("Type Racer");
         Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
         stage.getIcons().add(icon);
