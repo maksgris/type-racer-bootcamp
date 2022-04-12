@@ -79,12 +79,12 @@
      -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
      -fx-background-repeat: no-repeat;
      -fx-background-size: cover;
- }
- #myAnchorPane4{
+}
+#myAnchorPane4{
      -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
      -fx-background-repeat: no-repeat;
      -fx-background-size: cover;
- }
+}
 #myAnchorPane5{
     -fx-background-image: url("../../../../../src/main/java/com/example/images/meniu1.gif");
     -fx-background-repeat: no-repeat;
@@ -103,4 +103,7 @@
     -fx-pref-height: 17px;
     -fx-pref-width: 17px;
     -fx-background-color: linear-gradient(to bottom, yellow, deeppink, magenta, purple);
+}
+#muteButton {
+
 }

@@ -12,9 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -46,6 +44,7 @@ public class SceneController implements Initializable {
     private GameController finalController;
     private int time;
     static double volume = 0.1;
+    static boolean muted = false;
 
     @FXML
     private MediaView mediaView;
@@ -55,6 +54,10 @@ public class SceneController implements Initializable {
 
     @FXML
     Label myLabel;
+
+    @FXML
+    Button muteButton;
+
     public void StartGame(ActionEvent e)  throws IOException  {
         fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/InGame.fxml"));
         controller = fxmlLoader.getController();
@@ -150,6 +153,20 @@ public class SceneController implements Initializable {
         volume = soundSlider.getValue();
         mediaView.getMediaPlayer().setVolume(volume);
         System.out.println("[DEBUG] SetSound() in SceneController, volume = " + volume);
+    }
+    public void Mute() {
+
+        if(muted) {
+            mediaView.getMediaPlayer().setVolume(volume);
+            System.out.println("[DEBUG] Mute() in SceneController, volume = " + volume);
+            //System.out.println("UNMUTED");
+            muted = !muted;
+        } else {
+            mediaView.getMediaPlayer().setVolume(0);
+            System.out.println("[DEBUG] Mute() in SceneController, volume = 0");
+            //System.out.println("MUTED");
+            muted = !muted;
+        }
     }
     public void ExitGame() {
         Platform.exit();
