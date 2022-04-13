@@ -1,9 +1,6 @@
 package com.example.typeracerbootcamp.SERVER;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class SQLController {
 
@@ -56,5 +53,35 @@ public class SQLController {
             e.printStackTrace();
         }
         return -1;
+    }
+    public void populatedb(String[] words){
+        System.out.println("[DEBUG SERVER SQL] populating server...");
+        query="";
+        for(String i : words) {
+            System.out.println("[DEBUG SERVER SQL] unique word: " + i);
+            try {
+                if (!"null".equals(i)){
+                    query = "INSERT INTO `matchcontent`(`word`, `difficulty`) VALUES (\"" + i + "\"," + i.length() + ")";
+                    try {
+                        System.out.println("[DEBUG SERVER SQL] database populated by " +statement.executeUpdate(query)+" new words.");
+                    } catch (SQLException e) {
+                        System.out.println("[DEBUG SERVER SQL] Population failed! + " + query);
+                        e.printStackTrace();
+                    }
+                }
+            } catch (NullPointerException e) {
+                break;
+            }
+        }
+        System.out.println("[DEBUG SERVER SQL] querry final result: \n" + query);
+    }
+    public String finduserbyid(int id) throws SQLException{
+        query="SELECT * FROM `useraccounts` WHERE id = " + id;
+        ResultSet set = statement.executeQuery(query);
+        while(set.next()){
+            return set.getString(2);
+        }
+        return null;
+
     }
 }

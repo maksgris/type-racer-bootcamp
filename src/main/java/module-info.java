@@ -5,6 +5,7 @@ module com.example.typeracerbootcamp {
 
     requires org.controlsfx.controls;
     requires javafx.media;
+    requires com.google.common;
 
     opens com.example.typeracerbootcamp to javafx.fxml;
     exports com.example.typeracerbootcamp;

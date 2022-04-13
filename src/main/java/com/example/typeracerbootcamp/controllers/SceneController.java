@@ -1,5 +1,7 @@
 package com.example.typeracerbootcamp.controllers;
 
+import com.example.typeracerbootcamp.Links.FileLink;
+import com.example.typeracerbootcamp.Links.ServerLink;
 import com.example.typeracerbootcamp.Source;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -42,6 +44,7 @@ public class SceneController implements Initializable {
     private GameController finalController;
     private int time;
     static double volume = 0.1;
+    public static ServerLink link;
 
     @FXML
     private MediaView mediaView;
@@ -163,16 +166,47 @@ public class SceneController implements Initializable {
         stage.show();
     }
     public void StartGameOnline(ActionEvent e) throws IOException {
-        FXMLLoader popup = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/LoginAlert.fxml"));
-        OnlineGamePopup control = popup.getController();
-        Parent rot = popup.load();
-        Stage stg = new Stage();
-        stg.setTitle("Competitive Type Racing");
-        Image icon = new Image("file:src/main/java/images/image.png");
-        stg.getIcons().add(icon);
-        Scene scn = new Scene(rot);
-        stg.setScene(scn);
-        stg.show();
+        if(link==null){
+            link = new ServerLink();
+            FileLink file = new FileLink("temp.txt",true);
+            file.read();
+            try {
+                if (file.out()[0].equals(null) && file.out()[1].equals(null)) {
+                    System.out.println("[DEBUG] file values are null...");
+                    FXMLLoader popup = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/LoginAlert.fxml"));
+                    OnlineGamePopup control = popup.getController();
+                    Parent rot = popup.load();
+                    Stage stg = new Stage();
+                    stg.setTitle("Competitive Type Racing");
+                    Image icon = new Image("file:src/main/java/images/image.png");
+                    stg.getIcons().add(icon);
+                    Scene scn = new Scene(rot);
+                    stg.setScene(scn);
+                    stg.show();
+                } else {
+                    System.out.println("[DEBUG] file values are not null!");
+                    String temp = link.logUser(file.out()[0], file.out()[1]);
+                    Source.injectNick(temp);
+                    SceneController.setnick(temp);
+                }
+            }catch (RuntimeException ex){
+                System.out.println("[DEBUG] file exception: " + ex.getMessage());
+                FXMLLoader popup = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/LoginAlert.fxml"));
+                OnlineGamePopup control = popup.getController();
+                Parent rot = popup.load();
+                Stage stg = new Stage();
+                stg.setTitle("Competitive Type Racing");
+                Image icon = new Image("file:src/main/java/images/image.png");
+                stg.getIcons().add(icon);
+                Scene scn = new Scene(rot);
+                stg.setScene(scn);
+                stg.show();
+            }
+        }else{
+            System.out.println("[DEBUG] allegedly full success!");
+            link.onlinePlayController();
+        }
+
     }
 
     @Override

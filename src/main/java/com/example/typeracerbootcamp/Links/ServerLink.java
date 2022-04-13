@@ -1,5 +1,7 @@
 package com.example.typeracerbootcamp.Links;
 
+import com.example.typeracerbootcamp.Source;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -49,12 +51,16 @@ public class ServerLink {
         try{
             bufferedWriter.write("LOGIN");bufferedWriter.newLine();
             bufferedWriter.flush();
+            System.out.println("[DEBUG SERVERLINK] Action sent!");
             bufferedWriter.write(uname);bufferedWriter.newLine();
             bufferedWriter.flush();
+            System.out.println("[DEBUG SERVERLINK] uname sent!");
             bufferedWriter.write(pass);bufferedWriter.newLine();
             bufferedWriter.flush();
+            System.out.println("[DEBUG SERVERLINK] pass sent!");
             System.out.println("[DEBUG] LOGIN info submitted");
             response = bufferedReader.readLine();
+            System.out.println("[DEBUG SERVERLINK] Server responded: " + response);
             if(response.equals("Success")){
                 System.out.println("[DEBUG] Login successful!");
                 return uname;
@@ -66,6 +72,20 @@ public class ServerLink {
         }catch (Exception exception){
             exception.printStackTrace();
         }
+        System.out.println("[DEBUG SERVERLINK] FATAL END.");
         return null;
+    }
+    public void onlinePlayController(){
+        String response;
+        try{
+        bufferedWriter.write("FINDMATCH");bufferedWriter.newLine();
+        bufferedWriter.flush();
+        bufferedWriter.write(Source.outNick());bufferedWriter.newLine();
+        bufferedWriter.flush();
+        response = bufferedReader.readLine();
+            System.out.println("[DEBUG SERVERLINK] server responded: " + response);
+        }catch (Exception e){
+            System.out.println("[DEBUG SERVERLINK] it no worekrooney boi :(");
+        }
     }
 }

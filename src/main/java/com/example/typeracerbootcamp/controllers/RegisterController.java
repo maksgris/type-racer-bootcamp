@@ -1,6 +1,5 @@
 package com.example.typeracerbootcamp.controllers;
 
-import com.example.typeracerbootcamp.Links.ServerLink;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,10 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
+
+import static com.google.common.hash.Hashing.sha256;
 
 
 public class RegisterController {
@@ -25,11 +27,6 @@ public class RegisterController {
     private TextField pword;
     @FXML
     private TextField rpword;
-    static ServerLink link;
-
-    public static void instantiateLink(ServerLink linkin){
-        link = linkin;
-    }
 
     public void Back(ActionEvent e) throws IOException {
         FXMLLoader popup = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/LoginAlert.fxml"));
@@ -47,7 +44,7 @@ public class RegisterController {
     }
     public void register(ActionEvent e) throws IOException{
         System.out.println("[DEBUG] serverLink established succesfully...");
-        link.regUser(uname.getText(), email.getText(), pword.getText(), rpword.getText());
+        SceneController.link.regUser(uname.getText(), email.getText(), sha256().hashString(pword.getText(), StandardCharsets.UTF_8).toString(), sha256().hashString(rpword.getText(), StandardCharsets.UTF_8).toString());
 //        System.out.println("[DEBUG] executing SQL link and user registration...");
 //        SQLController dblink = new SQLController();
 //        if(dblink.registerUser(uname.getText(), email.getText(), pword.getText(), rpword.getText())){
