@@ -91,7 +91,7 @@ public class SceneController implements Initializable {
             exception.printStackTrace();
         }
 
-        time = 15;
+        time = 9999;
         Runnable timer = new Runnable() {
             @Override
             public void run() {

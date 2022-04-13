@@ -97,7 +97,7 @@
     -fx-text-fill: white;
 }
 #githubLink{
-   -fx-background-image: url("../images/githublogo.png");
+    -fx-background-image: url("../images/githublogo.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
