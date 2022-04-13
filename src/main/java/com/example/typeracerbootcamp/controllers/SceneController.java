@@ -158,28 +158,14 @@ public class SceneController implements Initializable {
         mediaView.getMediaPlayer().setVolume(volume);
         System.out.println("[DEBUG] SetSound() in SceneController, volume = " + volume);
         muted = false;
-        setUnmutePicture();
-    }
-    public void setMutePicture() {
-        ImageView mute = new ImageView(new Image("file:../../../../../src/main/resources/images/mute.png"));
-        mute.setFitHeight(35);
-        mute.setPreserveRatio(true);
-        muteButton.setGraphic(mute);
-    }
-    public void setUnmutePicture() {
-        ImageView unmute = new ImageView(new Image("file../../../../../src/main/resources/images/volume.png"));
-        unmute.setFitHeight(35);
-        unmute.setPreserveRatio(true);
-        muteButton.setGraphic(unmute);
+
     }
     public void Mute() {
         if(muted) {
-            setUnmutePicture();
             mediaView.getMediaPlayer().setVolume(volume);
             System.out.println("[DEBUG] Mute() in SceneController, volume = " + volume);
             muted = !muted;
         } else {
-            setMutePicture();
             mediaView.getMediaPlayer().setVolume(0);
             System.out.println("[DEBUG] Mute() in SceneController, volume = 0");
             muted = !muted;

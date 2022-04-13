@@ -110,3 +110,24 @@
     -fx-pref-width: 17px;
     -fx-background-color: linear-gradient(to bottom, yellow, deeppink, magenta, purple);
 }
+#muteButton {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/mute.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-opacity: 0.8;
+}
+#muteButton:hover {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/mute.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-opacity: 0.8;
+}
+#muteButton:pressed {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/mute.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-opacity: 0.8;
+}

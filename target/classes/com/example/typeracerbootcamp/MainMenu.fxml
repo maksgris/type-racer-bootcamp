@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.SceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.SceneController">
    <children>
       <AnchorPane fx:id="myAnchorPane" prefHeight="768.0" prefWidth="1024.0" stylesheets="@application.css">
          <children>
@@ -17,9 +17,9 @@
             <Button fx:id="quitGame" layoutX="385.0" layoutY="510.0" mnemonicParsing="false" onAction="#ExitGame" prefHeight="52.0" prefWidth="254.0" stylesheets="@application.css" text="Quit" />
             <Label fx:id="myLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="91.0" prefHeight="90.0" prefWidth="1026.0" stylesheets="@application.css" text="Type Racer " />
             <Button fx:id="twoPlayers" layoutX="386.0" layoutY="449.0" mnemonicParsing="false" onAction="#StartGameOnline" prefHeight="52.0" prefWidth="254.0" stylesheets="@application.css" text="2 Players" />
-            <Button fx:id="githubLink" layoutX="45.0" layoutY="650.0" mnemonicParsing="false" onAction="#OpenLink" opacity="0.7" prefHeight="69.0" prefWidth="78.0" stylesheets="@application.css" />
+            <Button fx:id="githubLink" layoutX="42.0" layoutY="650.0" mnemonicParsing="false" onAction="#OpenLink" opacity="0.7" prefHeight="78.0" prefWidth="78.0" stylesheets="@application.css" />
             <Slider fx:id="soundSlider" blockIncrement="0.01" layoutX="914.0" layoutY="517.0" majorTickUnit="0.1" max="0.2" onMouseReleased="#SetSound" orientation="VERTICAL" prefHeight="191.0" prefWidth="62.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" stylesheets="@application.css" value="0.1" />
-            <Button fx:id="muteButton" layoutX="908.0" layoutY="706.0" mnemonicParsing="false" onMouseClicked="#Mute" stylesheets="@application.css" />
+            <Button fx:id="muteButton" layoutX="914.0" layoutY="708.0" mnemonicParsing="false" onMouseClicked="#Mute" prefHeight="39.0" prefWidth="39.0" stylesheets="@application.css" />
          </children>
       </AnchorPane>
    </children>
