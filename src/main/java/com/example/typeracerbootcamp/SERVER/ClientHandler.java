@@ -118,7 +118,7 @@ public class ClientHandler extends Thread{
                                     System.out.println("[DEBUG SERVER] wait sent!");
                                 }else if(MatchMaker.inSearch.contains(user)){
                                     System.out.println("[DEBUG SERVER] Matchmaking uid already in queue: " + user.getUid() + " with name: " + uname);
-                                    bufferedWriter.write("I SAID WAIT BLET");bufferedWriter.newLine();
+                                    bufferedWriter.write("I SAID WAIT");bufferedWriter.newLine();
                                     bufferedWriter.flush();
                                 }
                                 else {
