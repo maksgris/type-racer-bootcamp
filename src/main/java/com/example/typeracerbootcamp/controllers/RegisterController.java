@@ -40,7 +40,7 @@ public class RegisterController {
         String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scn.getStylesheets().add(css);
         stg.setTitle("Competitive Type Racing");
-        Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
+        Image icon = new Image("file:src/main/resources/com/example/images/image.png");
         stg.getIcons().add(icon);
         stg.setScene(scn);
         stg.show();

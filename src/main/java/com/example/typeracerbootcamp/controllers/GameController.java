@@ -112,12 +112,12 @@ public class GameController {
         fxmlLoader.setController(controller = new EndGameController());
         controller.insertScore(wordsHit,accuracy,wpm);
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 600,400);
+        Scene scene = new Scene(root, 1024, 768);
         Stage stage = (Stage) label1.getScene().getWindow();
         String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Competitive Type Racing");
-        Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
+        Image icon = new Image("file:src/main/resources/com/example/images/image.png");
         stage.getIcons().add(icon);
         controller.init(label1);
         stage.setScene(scene);
