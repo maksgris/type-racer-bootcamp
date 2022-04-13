@@ -6,7 +6,7 @@ import java.io.*;
 import java.net.Socket;
 
 public class ServerLink {
-    private String ip = "192.168.1.252";
+    private String ip = "78.56.226.18";
     private int port = 1337;
     private Socket socket;
     private String str="ping";
