@@ -12,10 +12,9 @@ import java.util.Objects;
 
 
 public class Source extends Application {
-    private static Stage stg;
+    private static String nickname;
     @Override
     public void start(Stage stage) throws IOException {
-        stg = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(Source.class.getResource("MainMenu.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600, 400);
@@ -28,19 +27,13 @@ public class Source extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-
-
-    public void ChangeScene(FXMLLoader fxml) throws IOException{
-        Parent pane = fxml.load();
-        stg.getScene().setRoot(pane);
-    }
-
-    public Stage getstg(){
-        return stg;
-    }
-
     public static void main(String[] args) {
         launch();
+    }
+    public static void injectNick(String nick){
+        nickname = nick;
+    }
+    public static String outNick(){
+        return nickname;
     }
 }

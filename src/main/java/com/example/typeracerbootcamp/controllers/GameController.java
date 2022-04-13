@@ -10,9 +10,10 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Objects;
+import java.util.Random;
 
-public class GameController{
+public class GameController {
 
     private int wordsHit;
     private int wordsTotal;
@@ -106,17 +107,17 @@ public class GameController{
         labelinput.setText("Press esc to go to Score board!");
     }
     public void endgamelistener() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/EndGame.fxml"));
         EndGameController controller = fxmlLoader.getController();
         fxmlLoader.setController(controller = new EndGameController());
         controller.insertScore(wordsHit,accuracy,wpm);
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600,400);
         Stage stage = (Stage) label1.getScene().getWindow();
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Competitive Type Racing");
-        Image icon = new Image("file:src/main/java/images/image.png");
+        Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
         stage.getIcons().add(icon);
         controller.init(label1);
         stage.setScene(scene);

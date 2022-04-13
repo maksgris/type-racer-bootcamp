@@ -2,17 +2,23 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.SceneController">
    <children>
       <AnchorPane fx:id="myAnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Button fx:id="PlayGame" layoutX="209.0" layoutY="155.0" mnemonicParsing="false" onAction="#StartGame" prefHeight="36.0" prefWidth="182.0" stylesheets="@application.css" text="1 Player" />
-            <Button fx:id="quitGame" layoutX="209.0" layoutY="280.0" mnemonicParsing="false" onAction="#ExitGame" prefHeight="15.0" prefWidth="182.0" stylesheets="@application.css" text="Quit" />
-            <Label fx:id="myLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="68.0" prefHeight="19.0" prefWidth="600.0" stylesheets="@application.css" text="Type Racer " />
-            <Button fx:id="twoPlayers" layoutX="209.0" layoutY="210.0" mnemonicParsing="false" onAction="#StartGameOnline" prefHeight="27.0" prefWidth="182.0" stylesheets="@application.css" text="2 Players" />
+            <Label fx:id="LabelNick" alignment="CENTER" contentDisplay="CENTER" layoutY="136.0" prefHeight="52.0" prefWidth="600.0" />
+            <MediaView fx:id="mediaView" />
+            <Button fx:id="PlayGame" layoutX="188.0" layoutY="190.0" mnemonicParsing="false" onAction="#StartGame" prefHeight="35.0" prefWidth="182.0" stylesheets="@application.css" text="1 Player" />
+            <Button fx:id="quitGame" layoutX="188.0" layoutY="282.0" mnemonicParsing="false" onAction="#ExitGame" prefHeight="35.0" prefWidth="182.0" stylesheets="@application.css" text="Quit" />
+            <Label fx:id="myLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="43.0" prefHeight="19.0" prefWidth="600.0" stylesheets="@application.css" text="Type Racer " />
+            <Button fx:id="twoPlayers" layoutX="188.0" layoutY="237.0" mnemonicParsing="false" onAction="#StartGameOnline" prefHeight="35.0" prefWidth="182.0" stylesheets="@application.css" text="2 Players" />
+            <Button fx:id="githubLink" layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onAction="#OpenLink" opacity="0.7" prefHeight="35.0" prefWidth="35.0" stylesheets="@application.css" />
+            <Slider fx:id="soundSlider" blockIncrement="0.01" layoutX="548.0" layoutY="230.0" majorTickUnit="0.1" max="0.2" onMouseReleased="#SetSound" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" snapToTicks="true" stylesheets="@application.css" value="0.1" />
          </children>
       </AnchorPane>
    </children>
