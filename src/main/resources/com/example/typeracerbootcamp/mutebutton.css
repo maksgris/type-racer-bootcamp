@@ -1,0 +1,16 @@
+/*.button #muteButton {
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/unmute.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-opacity: 0;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+}*/
+.button #muteButton {
+    -fx-background-image: url("../../../../../src/main/java/com/example/images/unmute.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-font-size: 15;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill:   black;
+}
