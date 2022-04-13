@@ -22,6 +22,9 @@ public class ConnectedUser{
     public int getUid() {
         return uid;
     }
+    public String getUname(){
+        return uname;
+    }
     public Socket getSocket() {
         return socket;
     }
