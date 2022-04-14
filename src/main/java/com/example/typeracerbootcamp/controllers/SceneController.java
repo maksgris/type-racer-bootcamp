@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
@@ -45,6 +46,7 @@ public class SceneController implements Initializable {
     private int time;
     static double volume = 0.1;
     public static ServerLink link;
+    static boolean muted = false;
 
     @FXML
     private MediaView mediaView;
@@ -56,6 +58,9 @@ public class SceneController implements Initializable {
     Label myLabel;
 
     @FXML
+    Button muteButton;
+
+    @FXML
     Label LabelNick;
     static Label static_LabelNick;
 
@@ -65,12 +70,11 @@ public class SceneController implements Initializable {
         fxmlLoader.setController(controller = new GameController());
         root = fxmlLoader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root, 600,400);
+        scene = new Scene(root, 1024, 768);
         String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         controller.load(true);
         finalController = controller;
-
         //  Media Player
 
         if (mediaView.getMediaPlayer() != null)
@@ -88,7 +92,7 @@ public class SceneController implements Initializable {
             exception.printStackTrace();
         }
 
-        time = 15;
+        time = 9999;
         Runnable timer = new Runnable() {
             @Override
             public void run() {
@@ -154,6 +158,19 @@ public class SceneController implements Initializable {
         volume = soundSlider.getValue();
         mediaView.getMediaPlayer().setVolume(volume);
         System.out.println("[DEBUG] SetSound() in SceneController, volume = " + volume);
+        muted = false;
+
+    }
+    public void Mute() {
+        if(muted) {
+            mediaView.getMediaPlayer().setVolume(volume);
+            System.out.println("[DEBUG] Mute() in SceneController, volume = " + volume);
+            muted = !muted;
+        } else {
+            mediaView.getMediaPlayer().setVolume(0);
+            System.out.println("[DEBUG] Mute() in SceneController, volume = 0");
+            muted = !muted;
+        }
     }
     public void ExitGame() {
         Platform.exit();
@@ -178,7 +195,7 @@ public class SceneController implements Initializable {
                     Parent rot = popup.load();
                     Stage stg = new Stage();
                     stg.setTitle("Competitive Type Racing");
-                    Image icon = new Image("file:src/main/java/images/image.png");
+                    Image icon = new Image("file:src/main/resources/com/example/images/image.png");
                     stg.getIcons().add(icon);
                     Scene scn = new Scene(rot);
                     stg.setScene(scn);
@@ -213,7 +230,7 @@ public class SceneController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         static_LabelNick = LabelNick;
         try {
-            String fileName = getClass().getResource("/MainMenu.mp3").toURI().toString();
+            String fileName = Objects.requireNonNull(getClass().getResource("/MainMenu.mp3")).toURI().toString();
             Media media = new Media(fileName);
             MediaPlayer player = new MediaPlayer(media);
             mediaView.setMediaPlayer(player);

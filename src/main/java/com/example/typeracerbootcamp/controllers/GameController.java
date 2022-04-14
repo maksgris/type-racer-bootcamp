@@ -1,19 +1,26 @@
 package com.example.typeracerbootcamp.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class GameController {
+public class GameController implements Initializable {
 
     private int wordsHit;
     private int wordsTotal;
@@ -57,17 +64,45 @@ public class GameController {
     private Label labelinput;
     @FXML
     private Label labelTimer;
+
+    Timeline timeline = new Timeline();
+
+    public void fall(Label label) {
+
+        label.setLayoutX(0);
+        label.setLayoutY(0);
+
+        KeyValue keyValue = new KeyValue(label.translateYProperty(), 700);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(14000), keyValue);
+        timeline.getKeyFrames().addAll(keyFrame);
+
+        timeline.play();
+    }
+
     public void load(boolean hit){
+
+
         if(hit){
             label1.setText(words[r.nextInt(words.length)]);
             labelinput.setText("");
             wordsTotal++;
+
+            timeline.playFromStart();
+            fall(label1);
+
         }
         else{
             label1.setText(words[r.nextInt(words.length)]);
             labelinput.setText("");
             wordsTotal++;
+
+            timeline.playFromStart();
+            fall(label1);
+
         }
+
+
+
     }
     GameController(){
         wordsHit=0;
@@ -81,6 +116,9 @@ public class GameController {
             wordsHit++; accuracy = (float)wordsHit/wordsTotal;
             System.out.println("[DEBUG] Good hit! wordsHit: " + wordsHit + " accuracy: " + accuracy);
             this.load(true);
+
+
+
             }
         else{
             accuracy = (float)wordsHit/wordsTotal;
@@ -88,6 +126,9 @@ public class GameController {
             System.out.println("[DEBUG] label = " + label1.getText());
             System.out.println("[DEBUG] answ  = " + labelinput.getText());
             this.load(false);
+
+
+
         }
     }
     public void onLetterPress(String e){
@@ -112,12 +153,12 @@ public class GameController {
         fxmlLoader.setController(controller = new EndGameController());
         controller.insertScore(wordsHit,accuracy,wpm);
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 600,400);
+        Scene scene = new Scene(root, 1024, 768);
         Stage stage = (Stage) label1.getScene().getWindow();
         String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Competitive Type Racing");
-        Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
+        Image icon = new Image("file:src/main/resources/com/example/images/image.png");
         stage.getIcons().add(icon);
         controller.init(label1);
         stage.setScene(scene);
@@ -139,5 +180,10 @@ public class GameController {
         System.out.print(wpm);
         labelTimer.setText(String.valueOf(time));
         System.out.println();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        /*fall(label1);*/
     }
 }

@@ -8,6 +8,7 @@ public class Match implements Runnable{
         this.user1=user1;
         this.user2=user2;
     }
+
     @Override
     public void run() {
         user1.matchStart();
