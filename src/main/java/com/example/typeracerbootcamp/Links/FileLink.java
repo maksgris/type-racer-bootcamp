@@ -38,10 +38,14 @@ public class FileLink {
     public void read() {
         words = new String[1024];
         int i = 0;
-        while (scanner.hasNextLine()) {
-            words[i] = scanner.nextLine();
-            System.out.println("[DEBUG FILE] new word read: " + words[i]);
-            i++;
+        try{
+            while (scanner.hasNextLine()) {
+                words[i] = scanner.nextLine();
+                System.out.println("[DEBUG FILE] new word read: " + words[i]);
+                i++;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
     }
 

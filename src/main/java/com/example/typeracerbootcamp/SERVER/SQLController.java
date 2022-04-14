@@ -76,12 +76,14 @@ public class SQLController {
         System.out.println("[DEBUG SERVER SQL] querry final result: \n" + query);
     }
     public String finduserbyid(int id) throws SQLException{
+        String found;
         query="SELECT * FROM `useraccounts` WHERE id = " + id;
         ResultSet set = statement.executeQuery(query);
         while(set.next()){
-            return set.getString(2);
+            found = set.getString(2);
+            System.out.println("[DEBUG SERVER SQL] found user " + found + " with id: " + id);
+            return found;
         }
         return null;
-
     }
 }

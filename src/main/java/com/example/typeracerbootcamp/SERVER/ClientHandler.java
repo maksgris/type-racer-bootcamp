@@ -106,15 +106,19 @@ public class ClientHandler extends Thread{
                             try {
                                 if (sql.finduserbyid(user.getUid()).equals(uname) && !MatchMaker.inSearch.contains(user)) {
                                     System.out.println("[DEBUG SERVER] Matchmaking uid hit: " + user.getUid() + " with name: " + uname);
-                                    matchMaker.newSearch(user);
-                                    if (!matchMaker.isAlive()) {
-                                        matchMaker.start();
+                                    if(matchMaker.isAlive()) {
+                                        matchMaker.wait(100);
+                                        System.out.println("[DEBUG SERVER] stopping matchmaking");
                                     }
+                                    matchMaker.newSearch(user);
+                                    matchMaker.start();
+                                    System.out.println("[DEBUG SERVER] Matchmaker made.");
                                     bufferedWriter.write("WAIT");bufferedWriter.newLine();
                                     bufferedWriter.flush();
+                                    System.out.println("[DEBUG SERVER] wait sent!");
                                 }else if(MatchMaker.inSearch.contains(user)){
                                     System.out.println("[DEBUG SERVER] Matchmaking uid already in queue: " + user.getUid() + " with name: " + uname);
-                                    bufferedWriter.write("I SAID WAIT BLET");bufferedWriter.newLine();
+                                    bufferedWriter.write("I SAID WAIT");bufferedWriter.newLine();
                                     bufferedWriter.flush();
                                 }
                                 else {
@@ -129,6 +133,13 @@ public class ClientHandler extends Thread{
                 }
             }catch (Exception e){
                 System.out.println("[DEBUG CLIENTHANDLER] FATAL ERROR.");
+                try{
+                    socket.close();
+                    bufferedWriter.close();
+                    bufferedReader.close();
+                }catch (Exception ex){
+                    System.out.println("[DEBUG CLIENTHANDLER] destructor error! " + ex.getMessage());
+                }
                 clientLoggedIn = false;
                 break;
             }
