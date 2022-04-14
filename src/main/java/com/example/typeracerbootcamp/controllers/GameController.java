@@ -1,5 +1,6 @@
 package com.example.typeracerbootcamp.controllers;
 
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -59,52 +60,49 @@ public class GameController implements Initializable {
             "netus", "fames", "quisque", "euismod", "curabitur", "lectus",
             "elementum", "tempor", "risus", "cras"};
     @FXML
-    private Label label1;
+    Label label1;
     @FXML
     private Label labelinput;
     @FXML
     private Label labelTimer;
 
-    Timeline timeline = new Timeline();
 
-    public void fall(Label label) {
 
+    public void resetLabel(Label label) {
         label.setLayoutX(0);
         label.setLayoutY(0);
+        label.setTranslateX(0);
+        label.setTranslateY(0);
+    }
+    public void fall(Label label) {
+
+        resetLabel(label);
+
+        Timeline timeline = new Timeline();
 
         KeyValue keyValue = new KeyValue(label.translateYProperty(), 700);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(14000), keyValue);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(10000), keyValue);
         timeline.getKeyFrames().addAll(keyFrame);
 
         timeline.play();
     }
 
     public void load(boolean hit){
-
-
-        if(hit){
+        if(hit) {
             label1.setText(words[r.nextInt(words.length)]);
             labelinput.setText("");
             wordsTotal++;
-
-            timeline.playFromStart();
-            fall(label1);
-
         }
-        else{
+        else {
             label1.setText(words[r.nextInt(words.length)]);
             labelinput.setText("");
             wordsTotal++;
-
-            timeline.playFromStart();
-            fall(label1);
-
         }
 
-
+        fall(label1);
 
     }
-    GameController(){
+    GameController() {
         wordsHit=0;
         wordsTotal=0;
         accuracy=0;
@@ -116,9 +114,6 @@ public class GameController implements Initializable {
             wordsHit++; accuracy = (float)wordsHit/wordsTotal;
             System.out.println("[DEBUG] Good hit! wordsHit: " + wordsHit + " accuracy: " + accuracy);
             this.load(true);
-
-
-
             }
         else{
             accuracy = (float)wordsHit/wordsTotal;
@@ -126,9 +121,6 @@ public class GameController implements Initializable {
             System.out.println("[DEBUG] label = " + label1.getText());
             System.out.println("[DEBUG] answ  = " + labelinput.getText());
             this.load(false);
-
-
-
         }
     }
     public void onLetterPress(String e){
@@ -184,6 +176,6 @@ public class GameController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*fall(label1);*/
+        fall(label1);
     }
 }
