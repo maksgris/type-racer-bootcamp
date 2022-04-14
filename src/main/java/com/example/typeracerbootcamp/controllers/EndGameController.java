@@ -59,7 +59,7 @@ public class EndGameController {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/EndGame.fxml"));
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 600,400);
+            Scene scene = new Scene(root, 1024, 768);
             Stage stage = (Stage) label.getScene().getWindow();
             String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
             scene.getStylesheets().add(css);
@@ -104,7 +104,7 @@ public class EndGameController {
     public void MainMenu() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/typeracerbootcamp/MainMenu.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 600,400);
+        Scene scene = new Scene(root, 1024, 768);
         Stage stage = (Stage) scoreAccuracy.getScene().getWindow();
         String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);

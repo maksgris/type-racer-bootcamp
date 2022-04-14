@@ -38,7 +38,7 @@ public class LoginController {
         String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scn.getStylesheets().add(css);
         stg.setTitle("Competitive Type Racing");
-        Image icon2 = new Image("file:src/main/java/images/image.png");
+        Image icon2 = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
         stg.getIcons().add(icon2);
         stg.setScene(scn);
         stg.show();

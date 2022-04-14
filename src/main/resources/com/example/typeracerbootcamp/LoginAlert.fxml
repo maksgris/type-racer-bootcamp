@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.OnlineGamePopup">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.typeracerbootcamp.controllers.OnlineGamePopup">
    <children>
-      <AnchorPane fx:id="myAnchorPane4" prefHeight="148.0" prefWidth="542.0" stylesheets="@application.css">
+      <AnchorPane fx:id="myAnchorPane4" prefHeight="150.0" prefWidth="700.0" stylesheets="@application.css">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="58.0" prefHeight="31.0" prefWidth="549.0" text="You need an account to play multiplayer!" />
-            <Button fx:id="Login" layoutX="122.0" layoutY="111.0" mnemonicParsing="false" onAction="#Login" text="Login" />
-            <Button fx:id="Register" layoutX="209.0" layoutY="111.0" mnemonicParsing="false" onAction="#Register" text="Register" />
-            <Button layoutX="320.0" layoutY="111.0" mnemonicParsing="false" onAction="#nevermind" text="Nevermind!" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="58.0" prefHeight="49.0" prefWidth="765.0" text="You need an account to play multiplayer!" />
+            <Button fx:id="Login" layoutX="217.0" layoutY="111.0" mnemonicParsing="false" onAction="#Login" prefWidth="102.0" text="Login" />
+            <Button fx:id="Register" layoutX="347.0" layoutY="111.0" mnemonicParsing="false" onAction="#Register" text="Register" />
+            <Button layoutX="467.0" layoutY="111.0" mnemonicParsing="false" onAction="#nevermind" text="Nevermind!" />
          </children>
       </AnchorPane>
    </children>

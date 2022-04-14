@@ -17,11 +17,11 @@ public class Source extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Source.class.getResource("MainMenu.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 600, 400);
-        String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
+        Scene scene = new Scene(root, 1024, 768);
+        String css = Objects.requireNonNull(this.getClass().getResource("/com/example/typeracerbootcamp/application.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Type Racer");
-        Image icon = new Image("file:src/main/java/com/example/typeracerbootcamp/image.png");
+        Image icon = new Image("file:src/main/resources/com/example/images/image.png");
         stage.getIcons().add(icon);
         stage.setResizable(false);
         stage.setScene(scene);
